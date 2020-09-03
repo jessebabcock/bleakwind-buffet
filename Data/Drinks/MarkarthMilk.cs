@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Drinks
 {
-    class MarkarthMilk
+    public class MarkarthMilk
     {
         /// <summary>
         /// Gets price

@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class DoubleDraugr
+    public class DoubleDraugr
     {
         /// <summary>
         /// Ingredient variables set to true

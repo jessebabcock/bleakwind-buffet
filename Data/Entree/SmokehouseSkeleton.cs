@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class SmokehouseSkeleton
+    public class SmokehouseSkeleton
     {
         /// <summary>
         /// Ingredient variables set to true

@@ -10,7 +10,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace Data.Side
 {
-    class MadOtarGrits
+    public class MadOtarGrits
     {
         /// <summary>
         /// Gets price

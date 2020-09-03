@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class PhillyPoacher
+    public class PhillyPoacher
     {
         /// <summary>
         /// Ingredient variables set to true

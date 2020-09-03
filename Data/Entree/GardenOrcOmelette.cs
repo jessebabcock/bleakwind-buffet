@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class GardenOrcOmelette
+    public class GardenOrcOmelette
     {
         /// <summary>
         /// Ingredient variables set to true

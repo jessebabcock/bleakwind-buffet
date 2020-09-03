@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Data.Drinks
 {
-    class WarriorWater
+    public class WarriorWater
     {
         /// <summary>
         /// Gets price

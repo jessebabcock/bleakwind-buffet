@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Side
 {
-    class FriedMiraak
+    public class FriedMiraak
     {
         /// <summary>
         /// Gets price

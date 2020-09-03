@@ -10,7 +10,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace Data.Side
 {
-    class DragonbornWaffleFries
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// Gets price

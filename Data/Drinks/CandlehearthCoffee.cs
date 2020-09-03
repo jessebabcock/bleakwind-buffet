@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Drinks
 {
-    class CandlehearthCoffee
+    public class CandlehearthCoffee
     {
         /// <summary>
         /// Gets price

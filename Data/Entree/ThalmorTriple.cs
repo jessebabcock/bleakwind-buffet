@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class ThalmorTriple
+    public class ThalmorTriple
     {
         /// <summary>
         /// Ingredient variables set to true

@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class ThugsTBone
+    public class ThugsTBone
     {
         /// <summary>
         /// Gets price

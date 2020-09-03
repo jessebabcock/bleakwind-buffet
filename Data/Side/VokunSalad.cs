@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Side
 {
-    class VokunSalad
+    public class VokunSalad
     {
 
         /// <summary>

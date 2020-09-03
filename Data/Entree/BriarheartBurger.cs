@@ -10,7 +10,7 @@ using System.Text;
 
 namespace Data.Entree
 {
-    class BriarheartBurger
+    public class BriarheartBurger
     {
         bool bun, ketchup, mustard, pickle, cheese;
 

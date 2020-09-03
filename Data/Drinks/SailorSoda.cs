@@ -7,8 +7,10 @@ using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     public class SailorSoda
     {

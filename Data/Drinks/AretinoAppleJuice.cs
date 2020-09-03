@@ -6,9 +6,11 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data;
 using System.Text;
 
-namespace Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
     public class AretinoAppleJuice
     {

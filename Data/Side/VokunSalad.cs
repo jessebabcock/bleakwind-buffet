@@ -7,8 +7,12 @@ using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Entree;
+using BleakwindBuffet.Data.Side;
+using BleakwindBuffet.Data.Drinks;
 
-namespace Data.Side
+namespace BleakwindBuffet.Data.Side
 {
     public class VokunSalad
     {

@@ -12,10 +12,13 @@ using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Public class for Sailor Soda
+    /// </summary>
     public class SailorSoda
     {
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -30,7 +33,7 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories

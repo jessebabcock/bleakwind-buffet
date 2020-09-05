@@ -14,6 +14,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Public class for Garden Orc Omelette
+    /// </summary>
     public class GardenOrcOmelette
     {
         /// <summary>
@@ -22,7 +25,7 @@ namespace BleakwindBuffet.Data.Entree
         bool broccoli = true, mushrooms = true, tomato = true, cheddar = true;
 
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -35,7 +38,7 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -54,11 +57,11 @@ namespace BleakwindBuffet.Data.Entree
         {
             get
             {
-                List<string> instructions = new List<string>();
-                if (!Broccoli)  SpecialInstructions.Add("Hold broccoli");
-                if (!Mushrooms) SpecialInstructions.Add("Hold mushrooms");
-                if (!Tomato)    SpecialInstructions.Add("Hold tomato");
-                if (!Cheddar)   SpecialInstructions.Add("Hold cheddar");
+                List<string>    instructions = new List<string>();
+                if (!Broccoli)  instructions.Add("Hold broccoli");
+                if (!Mushrooms) instructions.Add("Hold mushrooms");
+                if (!Tomato)    instructions.Add("Hold tomato");
+                if (!Cheddar)   instructions.Add("Hold cheddar");
                 return instructions;
             }
         }

@@ -12,10 +12,13 @@ using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Public class for Markarth Milk
+    /// </summary>
     public class MarkarthMilk
     {
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -30,7 +33,7 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -52,15 +55,15 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 List<string> instructions = new List<string>();
-                if (!Ice) instructions.Add("Hold ice");
+                if (Ice) instructions.Add("Add ice");
                 return instructions;
             }
         }
 
         /// <summary>
-        /// private variable to ice defaulted true
+        /// private variable to ice defaulted false
         /// </summary>
-        private bool ice = true;
+        private bool ice = false;
 
         /// <summary>
         /// private variable to size defaulted small

@@ -15,12 +15,18 @@ using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Public class for Briarheart Burger
+    /// </summary>
     public class BriarheartBurger
     {
-        bool bun, ketchup, mustard, pickle, cheese;
+        /// <summary>
+        /// Private bools for the getter and setter defaulted true
+        /// </summary>
+        bool bun = true, ketchup = true, mustard = true, pickle = true, cheese = true;
 
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -33,7 +39,7 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories

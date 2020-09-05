@@ -13,10 +13,13 @@ using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Public class for Warrior Water
+    /// </summary>
     public class WarriorWater
     {
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -29,7 +32,7 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -49,8 +52,8 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 List<string> instructions = new List<string>();
-                if (!Ice)   SpecialInstructions.Add("Hold ice");
-                if (Lemon)  SpecialInstructions.Add("Add lemon");
+                if (!Ice) instructions.Add("Hold ice");
+                if (Lemon) instructions.Add("Add lemon");
                 return instructions;
             }
         }

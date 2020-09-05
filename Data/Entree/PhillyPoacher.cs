@@ -13,6 +13,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Public class for Philly Poacher
+    /// </summary>
     public class PhillyPoacher
     {
         /// <summary>
@@ -21,7 +24,7 @@ namespace BleakwindBuffet.Data.Entree
         bool sirloin = true, onion = true, roll = true;
 
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -34,7 +37,7 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -53,10 +56,10 @@ namespace BleakwindBuffet.Data.Entree
         {
             get
             {
-                List<string> instructions = new List<string>();
-                if (!Sirloin)   SpecialInstructions.Add("Hold sirloin");
-                if (!Onion)     SpecialInstructions.Add("Hold onion");
-                if (!Roll)      SpecialInstructions.Add("Hold roll");
+                List<string>    instructions = new List<string>();
+                if (!Sirloin)   instructions.Add("Hold sirloin");
+                if (!Onion)     instructions.Add("Hold onion");
+                if (!Roll)      instructions.Add("Hold roll");
                 return instructions;
             }
         }

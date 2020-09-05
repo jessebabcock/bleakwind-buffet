@@ -13,10 +13,13 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Class for Thugs T-Bone
+    /// </summary>
     public class ThugsTBone
     {
         /// <summary>
-        /// Gets price
+        /// Double for price
         /// </summary>
         private double price;
         public double Price
@@ -29,7 +32,7 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         /// <summary>
-        /// Gets calories
+        /// Uint for calories
         /// </summary>
         private uint calories;
         public uint Calories

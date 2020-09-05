@@ -14,6 +14,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Public class for Double Draugr
+    /// </summary>
     public class DoubleDraugr
     {
         /// <summary>
@@ -23,7 +26,7 @@ namespace BleakwindBuffet.Data.Entree
              pickle = true, cheese = true, tomato = true, lettuce = true, mayo = true;
 
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -36,7 +39,7 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -61,9 +64,9 @@ namespace BleakwindBuffet.Data.Entree
                 if (!Mustard) instructions.Add("Hold mustard");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Cheese) instructions.Add("Hold cheese");
-                if (!Tomato) instructions.Add("Hold mustard");
-                if (!Lettuce) instructions.Add("Hold pickle");
-                if (!Mayo) instructions.Add("Hold cheese");
+                if (!Tomato) instructions.Add("Hold tomato");
+                if (!Lettuce) instructions.Add("Hold lettuce");
+                if (!Mayo) instructions.Add("Hold mayo");
                 return instructions;
             }
         }

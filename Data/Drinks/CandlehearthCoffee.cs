@@ -12,10 +12,13 @@ using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// Public class for Candlehearth Coffee
+    /// </summary>
     public class CandlehearthCoffee
     {
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -30,7 +33,7 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -53,17 +56,17 @@ namespace BleakwindBuffet.Data.Drinks
             get
             {
                 List<string> instructions = new List<string>();
-                if (Ice)            SpecialInstructions.Add("Add ice");
-                if (RoomForCream)   SpecialInstructions.Add("Add cream");
-                if (Decaf)          SpecialInstructions.Add("Add decaf");
+                if (Ice)            instructions.Add("Add ice");
+                if (RoomForCream)   instructions.Add("Add cream");
+                if (Decaf)          instructions.Add("Add decaf");
                 return instructions;
             }
         }
 
         /// <summary>
-        /// private variable to ice defaulted true
+        /// private variable to ice defaulted false
         /// </summary>
-        private bool ice = true;
+        private bool ice = false;
 
         /// <summary>
         /// private variable to size defaulted small

@@ -14,11 +14,14 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.Data.Side
 {
+    /// <summary>
+    /// Public class for Vokun Salad
+    /// </summary>
     public class VokunSalad
     {
 
         /// <summary>
-        /// Gets price
+        /// Double for price
         /// </summary>
         private double price;
         public double Price
@@ -33,7 +36,7 @@ namespace BleakwindBuffet.Data.Side
         }
 
         /// <summary>
-        /// Gets calories
+        /// Uint for calories
         /// </summary>
         private uint calories;
         public uint Calories

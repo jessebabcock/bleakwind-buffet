@@ -13,6 +13,9 @@ using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.Data.Entree
 {
+    /// <summary>
+    /// Public class for Smokehouse Skeleton
+    /// </summary>
     public class SmokehouseSkeleton
     {
         /// <summary>
@@ -21,7 +24,7 @@ namespace BleakwindBuffet.Data.Entree
         bool sausageLink = true, egg = true, hashBrowns = true, pancake = true;
 
         /// <summary>
-        /// Gets price
+        /// Gets price in double
         /// </summary>
         private double price;
         public double Price
@@ -34,7 +37,7 @@ namespace BleakwindBuffet.Data.Entree
         }
 
         /// <summary>
-        /// Gets calories
+        /// Gets calories in uint
         /// </summary>
         private uint calories;
         public uint Calories
@@ -54,10 +57,10 @@ namespace BleakwindBuffet.Data.Entree
             get
             {
                 List<string> instructions = new List<string>();
-                if (!SausageLink)   SpecialInstructions.Add("Hold sausage");
-                if (!Egg)           SpecialInstructions.Add("Hold egg");
-                if (!HashBrowns)    SpecialInstructions.Add("Hold hashbrowns");
-                if (!Pancake)       SpecialInstructions.Add("Hold pancake");
+                if (!SausageLink)   instructions.Add("Hold sausage");
+                if (!Egg)           instructions.Add("Hold egg");
+                if (!HashBrowns)    instructions.Add("Hold hashbrowns");
+                if (!Pancake)       instructions.Add("Hold pancake");
                 return instructions;
             }
         }

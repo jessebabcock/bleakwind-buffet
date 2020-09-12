@@ -17,7 +17,7 @@ namespace BleakwindBuffet.Data.Entree
     /// <summary>
     /// Public class for Double Draugr
     /// </summary>
-    public class DoubleDraugr
+    public class DoubleDraugr : Entree, IOrderItem
     {
         /// <summary>
         /// Ingredient variables set to true
@@ -29,7 +29,7 @@ namespace BleakwindBuffet.Data.Entree
         /// Gets price in double
         /// </summary>
         private double price;
-        public double Price
+        public override double Price
         {
             get
             {
@@ -42,7 +42,7 @@ namespace BleakwindBuffet.Data.Entree
         /// Gets calories in uint
         /// </summary>
         private uint calories;
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Entree
         /// <summary>
         /// List of instructions based on what ingredients are false
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

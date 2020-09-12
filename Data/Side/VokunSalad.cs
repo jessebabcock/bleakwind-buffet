@@ -17,14 +17,14 @@ namespace BleakwindBuffet.Data.Side
     /// <summary>
     /// Public class for Vokun Salad
     /// </summary>
-    public class VokunSalad
+    public class VokunSalad : Side, IOrderItem
     {
 
         /// <summary>
         /// Double for price
         /// </summary>
         private double price;
-        public double Price
+        public override double Price
         {
             get
             {
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Side
         /// Uint for calories
         /// </summary>
         private uint calories;
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -54,7 +54,7 @@ namespace BleakwindBuffet.Data.Side
         /// <summary>
         /// List of instructions based on what ingredients are false
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -67,15 +67,6 @@ namespace BleakwindBuffet.Data.Side
         /// private variable to size defaulted small
         /// </summary>
         private Size size = Size.Small;
-
-        /// <summary>
-        /// Gets what size they want (small, medium, large)
-        /// </summary>
-        public Size Size
-        {
-            get { return size; }
-            set { size = value; }
-        }
 
         /// <summary>
         /// Prints what size it is 

@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+* Author: Jesse Babcock
+* Class name: Menu.cs
+* Purpose: Adds all the menu items into an IEnumerale<IOrderItem>
+*/
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Side;
@@ -11,6 +16,10 @@ namespace BleakwindBuffet.Data
 {
     public static class Menu
     {
+        /// <summary>
+        /// Makes a list of Entrees and turns it into an IEnumerale<IOrderItem>
+        /// </summary>
+        /// <returns> IEnumerale<IOrderItem> of Entrees </returns>
         public static IEnumerable<IOrderItem> Entrees()
         {
             List<IOrderItem> Items = new List<IOrderItem>();
@@ -28,10 +37,14 @@ namespace BleakwindBuffet.Data
             Items.Add(ss);
             Items.Add(tt);
             Items.Add(ttb);
-            IEnumerable<IOrderItem> Entree = Items;
-            return Entree;
+            IEnumerable<IOrderItem> entree = Items;
+            return entree;
         }
 
+        /// <summary>
+        /// Makes a list of Sides and turns it into an IEnumerale<IOrderItem>
+        /// </summary>
+        /// <returns> IEnumerale<IOrderItem> of Sides </returns>
         public static IEnumerable<IOrderItem> Sides()
         {
             List<IOrderItem> Items = new List<IOrderItem>();
@@ -75,10 +88,14 @@ namespace BleakwindBuffet.Data
             Items.Add(vsm);
             Items.Add(vsl);
 
-            IEnumerable<IOrderItem> Entree = Items;
-            return Entree;
+            IEnumerable<IOrderItem> sides = Items;
+            return sides;
         }
 
+        /// <summary>
+        /// Makes a list of Drinks and turns it into an IEnumerale<IOrderItem>
+        /// </summary>
+        /// <returns> IEnumerale<IOrderItem> of Drinks </returns>
         public static IEnumerable<IOrderItem> Drinks()
         {
             List<IOrderItem> Items = new List<IOrderItem>();
@@ -182,10 +199,14 @@ namespace BleakwindBuffet.Data
             Items.Add(wwm);
             Items.Add(wwl);
 
-            IEnumerable<IOrderItem> Entree = Items;
-            return Entree;
+            IEnumerable<IOrderItem> drinks = Items;
+            return drinks;
         }
 
+        /// <summary>
+        /// Makes a list of all the items and turns it into an IEnumerale<IOrderItem>
+        /// </summary>
+        /// <returns> IEnumerale<IOrderItem> of all the items </returns>
         public static IEnumerable<IOrderItem> FullMenu()
         {
             List<IOrderItem> Items = new List<IOrderItem>();
@@ -345,8 +366,8 @@ namespace BleakwindBuffet.Data
             Items.Add(wwm);
             Items.Add(wwl);
 
-            IEnumerable<IOrderItem> Entree = Items;
-            return Entree;
+            IEnumerable<IOrderItem> allItems = Items;
+            return allItems;
         }
     }
 }

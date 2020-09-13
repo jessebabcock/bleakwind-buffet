@@ -10,9 +10,9 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public abstract class Drink
     {
-        /// <summary>
+        /// <virutal>
         /// Size of drink
-        /// </summary>
+        /// </virtual>
         public virtual Size Size { get; set; }
 
         /// <summary>

@@ -10,9 +10,9 @@ namespace BleakwindBuffet.Data.Side
     /// </summary>
     public abstract class Side
     {
-        /// <summary>
+        /// <virtual>
         /// Size of the side
-        /// </summary>
+        /// </virutal>
         public virtual Size Size { get; set; }
 
         /// <summary>

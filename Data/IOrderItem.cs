@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Jesse Babcock
+* Class name: IOrderItem.cs
+* Purpose: Interface for the Data library
+*/
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;

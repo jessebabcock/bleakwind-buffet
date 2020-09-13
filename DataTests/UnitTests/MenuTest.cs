@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Jesse Babcock
- * Class: DragonbornWaffleFriesTests.cs
- * Purpose: Test the DragonbornWaffleFries.cs class in the Data library
+ * Class: MenuTest.cs
+ * Purpose: Test the Menu.cs class in the Data library
  */
 using Xunit;
 
@@ -10,6 +10,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.Collections.Generic;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -37,6 +38,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Assert.Contains(Menu.Entrees(), (Drink) => { return Drink.ToString().Equals("Small Candlehearth Coffee"); });
             Assert.Contains(Menu.Entrees(), (Drink) => { return Drink.ToString().Equals("Medium Candlehearth Coffee"); });
             Assert.Contains(Menu.Entrees(), (Drink) => { return Drink.ToString().Equals("Large Candlehearth Coffee"); });
+
             Assert.Contains(Menu.Entrees(), (Drink) => { return Drink.ToString().Equals("Small Decaf Candlehearth Coffee"); });
             Assert.Contains(Menu.Entrees(), (Drink) => { return Drink.ToString().Equals("Medium Decaf Candlehearth Coffee"); });
             Assert.Contains(Menu.Entrees(), (Drink) => { return Drink.ToString().Equals("Large Decaf Candlehearth Coffee"); });
@@ -77,10 +79,21 @@ namespace BleakwindBuffet.DataTests.UnitTests
         [Fact]
         public void ShouldBeAbleToCastSide()
         {
-            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Dragonborn Waffle Fries"); });
-            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Fried Miraak"); });
-            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Mad Otar Grits"); });
-            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Vokun Salad"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Small Dragonborn Waffle Fries"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Medium Dragonborn Waffle Fries"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Large Dragonborn Waffle Fries"); });
+
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Small Fried Miraak"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Medium Fried Miraak"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Large Fried Miraak"); });
+
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Small Mad Otar Grits"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Medium Mad Otar Grits"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Large Mad Otar Grits"); });
+
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Small Vokun Salad"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Medium Vokun Salad"); });
+            Assert.Contains(Menu.Entrees(), (Side) => { return Side.ToString().Equals("Large Vokun Salad"); });
         }
     }
 }

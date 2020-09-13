@@ -69,11 +69,6 @@ namespace BleakwindBuffet.Data.Drinks
         private bool ice = false;
 
         /// <summary>
-        /// private variable to size defaulted small
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
         /// private variable to cream defaulted false
         /// </summary>
         private bool cream = false;

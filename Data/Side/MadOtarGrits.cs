@@ -61,11 +61,6 @@ namespace BleakwindBuffet.Data.Side
             }
         }
 
-        /// <summary>
-        /// private variable to size defaulted small
-        /// </summary>
-        private Size size = Size.Small;
-
 
         /// <summary>
         /// Prints what size it is 

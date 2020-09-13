@@ -37,8 +37,7 @@ namespace BleakwindBuffet.Data
             Items.Add(ss);
             Items.Add(tt);
             Items.Add(ttb);
-            IEnumerable<IOrderItem> entree = Items;
-            return entree;
+            return Items;
         }
 
         /// <summary>
@@ -53,7 +52,7 @@ namespace BleakwindBuffet.Data
             DragonbornWaffleFries dwfm = new DragonbornWaffleFries();
             dwfm.Size = Size.Medium;
             DragonbornWaffleFries dwfl = new DragonbornWaffleFries();
-            dwfm.Size = Size.Large;
+            dwfl.Size = Size.Large;
             Items.Add(dwfs);
             Items.Add(dwfm);
             Items.Add(dwfl);
@@ -88,8 +87,8 @@ namespace BleakwindBuffet.Data
             Items.Add(vsm);
             Items.Add(vsl);
 
-            IEnumerable<IOrderItem> sides = Items;
-            return sides;
+           
+            return Items;
         }
 
         /// <summary>
@@ -119,6 +118,19 @@ namespace BleakwindBuffet.Data
             Items.Add(ccm);
             Items.Add(ccl);
 
+            CandlehearthCoffee dccs = new CandlehearthCoffee();
+            dccs.Size = Size.Small;
+            dccs.Decaf = true;
+            CandlehearthCoffee dccm = new CandlehearthCoffee();
+            dccm.Size = Size.Medium;
+            dccm.Decaf = true;
+            CandlehearthCoffee dccl = new CandlehearthCoffee();
+            dccl.Size = Size.Large;
+            dccl.Decaf = true;
+            Items.Add(dccs);
+            Items.Add(dccm);
+            Items.Add(dccl);
+
             MarkarthMilk mms = new MarkarthMilk();
             mms.Size = Size.Small;
             MarkarthMilk mmm = new MarkarthMilk();
@@ -131,19 +143,25 @@ namespace BleakwindBuffet.Data
 
             SailorSoda sssbb = new SailorSoda();
             sssbb.Size = Size.Small;
+            sssbb.Flavor = SodaFlavor.Blackberry;
             SailorSoda ssmbb = new SailorSoda();
             ssmbb.Size = Size.Medium;
+            ssmbb.Flavor = SodaFlavor.Blackberry;
             SailorSoda sslbb = new SailorSoda();
             sslbb.Size = Size.Large;
+            sslbb.Flavor = SodaFlavor.Blackberry;
             Items.Add(sssbb);
             Items.Add(ssmbb);
             Items.Add(sslbb);
 
             SailorSoda sssc = new SailorSoda();
             sssc.Size = Size.Small;
+            sssc.Flavor = SodaFlavor.Cherry;
             SailorSoda ssmc = new SailorSoda();
+            ssmc.Flavor = SodaFlavor.Cherry;
             ssmc.Size = Size.Medium;
             SailorSoda sslc = new SailorSoda();
+            sslc.Flavor = SodaFlavor.Cherry;
             sslc.Size = Size.Large;
             Items.Add(sssc);
             Items.Add(ssmc);
@@ -151,40 +169,52 @@ namespace BleakwindBuffet.Data
 
             SailorSoda sssg = new SailorSoda();
             sssg.Size = Size.Small;
+            sssg.Flavor = SodaFlavor.Grapefruit;
             SailorSoda ssmg = new SailorSoda();
             ssmg.Size = Size.Medium;
+            ssmg.Flavor = SodaFlavor.Grapefruit;
             SailorSoda sslg = new SailorSoda();
             sslg.Size = Size.Large;
+            sslg.Flavor = SodaFlavor.Grapefruit;
             Items.Add(sssg);
             Items.Add(ssmg);
             Items.Add(sslg);
 
             SailorSoda sssl = new SailorSoda();
             sssl.Size = Size.Small;
+            sssl.Flavor = SodaFlavor.Lemon;
             SailorSoda ssml = new SailorSoda();
             ssml.Size = Size.Medium;
+            ssml.Flavor = SodaFlavor.Lemon;
             SailorSoda ssll = new SailorSoda();
             ssll.Size = Size.Large;
+            ssll.Flavor = SodaFlavor.Lemon;
             Items.Add(sssl);
             Items.Add(ssml);
             Items.Add(ssll);
 
             SailorSoda sssp = new SailorSoda();
             sssp.Size = Size.Small;
+            sssp.Flavor = SodaFlavor.Peach;
             SailorSoda ssmp = new SailorSoda();
             ssmp.Size = Size.Medium;
+            ssmp.Flavor = SodaFlavor.Peach;
             SailorSoda sslp = new SailorSoda();
             sslp.Size = Size.Large;
+            sslp.Flavor = SodaFlavor.Peach;
             Items.Add(sssp);
             Items.Add(ssmp);
             Items.Add(sslp);
 
             SailorSoda sssw = new SailorSoda();
             sssw.Size = Size.Small;
+            sssw.Flavor = SodaFlavor.Watermelon;
             SailorSoda ssmw = new SailorSoda();
             ssmw.Size = Size.Medium;
+            ssmw.Flavor = SodaFlavor.Watermelon;
             SailorSoda sslw = new SailorSoda();
             sslw.Size = Size.Large;
+            sslw.Flavor = SodaFlavor.Watermelon;
             Items.Add(sssw);
             Items.Add(ssmw);
             Items.Add(sslw);
@@ -199,8 +229,7 @@ namespace BleakwindBuffet.Data
             Items.Add(wwm);
             Items.Add(wwl);
 
-            IEnumerable<IOrderItem> drinks = Items;
-            return drinks;
+            return Items;
         }
 
         /// <summary>
@@ -366,8 +395,7 @@ namespace BleakwindBuffet.Data
             Items.Add(wwm);
             Items.Add(wwl);
 
-            IEnumerable<IOrderItem> allItems = Items;
-            return allItems;
+            return Items;
         }
     }
 }

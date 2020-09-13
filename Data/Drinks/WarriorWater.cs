@@ -69,11 +69,6 @@ namespace BleakwindBuffet.Data.Drinks
         private bool lemon = false;
 
         /// <summary>
-        /// private variable to size defaulted small
-        /// </summary>
-        private Size size = Size.Small;
-
-        /// <summary>
         /// Gets true or false if they want ice
         /// </summary>
         public bool Ice

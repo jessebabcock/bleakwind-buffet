@@ -21,9 +21,16 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderSum : UserControl
     {
+        
+
+        /// <summary>
+        /// Initializes order reciept
+        /// </summary>
         public OrderSum()
         {
             InitializeComponent();
         }
+
+        
     }
 }

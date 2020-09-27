@@ -64,5 +64,101 @@ namespace PointOfSale.Drinks
         {
             o.pageDisplay.Child = o.menu;
         }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckSize(object sender, RoutedEventArgs e)
+        {
+            if (smallBox.IsChecked == true)
+            {
+                mediumBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (mediumBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (largeBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                mediumBox.IsEnabled = false;
+            }
+            else
+            {
+                smallBox.IsEnabled = true;
+                mediumBox.IsEnabled = true;
+                largeBox.IsEnabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one flavor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckFlavor(object sender, RoutedEventArgs e)
+        {
+            if(blackberry.IsChecked == true)
+            {
+                grapefruit.IsEnabled = false;
+                lemon.IsEnabled = false;
+                peach.IsEnabled = false;
+                watermelon.IsEnabled = false;
+                cherry.IsEnabled = false;
+            }
+            else if (cherry.IsChecked == true)
+            {
+                grapefruit.IsEnabled = false;
+                lemon.IsEnabled = false;
+                peach.IsEnabled = false;
+                watermelon.IsEnabled = false;
+                blackberry.IsEnabled = false;
+            }
+            else if (lemon.IsChecked == true)
+            {
+                grapefruit.IsEnabled = false;
+                blackberry.IsEnabled = false;
+                peach.IsEnabled = false;
+                watermelon.IsEnabled = false;
+                cherry.IsEnabled = false;
+            }
+            else if (grapefruit.IsChecked == true)
+            {
+                blackberry.IsEnabled = false;
+                lemon.IsEnabled = false;
+                peach.IsEnabled = false;
+                watermelon.IsEnabled = false;
+                cherry.IsEnabled = false;
+            }
+            else if (watermelon.IsChecked == true)
+            {
+                grapefruit.IsEnabled = false;
+                lemon.IsEnabled = false;
+                peach.IsEnabled = false;
+                blackberry.IsEnabled = false;
+                cherry.IsEnabled = false;
+            }
+            else if (peach.IsChecked == true)
+            {
+                grapefruit.IsEnabled = false;
+                lemon.IsEnabled = false;
+                blackberry.IsEnabled = false;
+                watermelon.IsEnabled = false;
+                cherry.IsEnabled = false;
+            }
+            else
+            {
+                peach.IsEnabled = true;
+                grapefruit.IsEnabled = true;
+                lemon.IsEnabled = true;
+                blackberry.IsEnabled = true;
+                watermelon.IsEnabled = true;
+                cherry.IsEnabled = true;
+            }
+        }
     }
 }

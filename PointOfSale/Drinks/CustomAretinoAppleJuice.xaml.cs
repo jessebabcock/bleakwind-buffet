@@ -64,5 +64,35 @@ namespace PointOfSale.Drinks
         {
            o.pageDisplay.Child = o.menu;
         }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckSize(object sender, RoutedEventArgs e)
+        {
+            if (smallBox.IsChecked == true)
+            {
+                mediumBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if(mediumBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (largeBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                mediumBox.IsEnabled = false;
+            }
+            else
+            {
+                smallBox.IsEnabled = true;
+                mediumBox.IsEnabled = true;
+                largeBox.IsEnabled = true;
+            }
+        }
     }
 }

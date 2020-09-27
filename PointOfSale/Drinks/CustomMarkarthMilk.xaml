@@ -32,9 +32,9 @@
         <TextBlock Name="orderItem" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" TextDecorations="Underline">Size</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" TextDecorations="Underline">Special</TextBlock>
-        <CheckBox Grid.Row="4" VerticalAlignment="Center">Small</CheckBox>
-        <CheckBox Grid.Row="5" VerticalAlignment="Center">Medium</CheckBox>
-        <CheckBox Grid.Row="6" VerticalAlignment="Center">Large</CheckBox>
+        <CheckBox Click="CheckSize" Name="smallBox"  Grid.Row="4" VerticalAlignment="Center">Small</CheckBox>
+        <CheckBox Click="CheckSize" Name="mediumBox" Grid.Row="5" VerticalAlignment="Center">Medium</CheckBox>
+        <CheckBox Click="CheckSize" Name="largeBox" Grid.Row="6" VerticalAlignment="Center">Large</CheckBox>
         <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">Ice</CheckBox>
         <Button Click="DoneClick" Grid.Row="9" Grid.Column="1" Margin="4" Width="100" Height="50" HorizontalAlignment="Right">Done</Button>
         <Button Click="CancelClick" Grid.Row="2" Grid.Column="0" Margin="4" Width="60"  HorizontalAlignment="Left">Cancel</Button>

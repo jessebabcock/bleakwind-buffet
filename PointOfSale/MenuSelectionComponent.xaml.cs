@@ -28,15 +28,10 @@ namespace PointOfSale
         /// Button click event to get in
         /// </summary>
         public event EventHandler<MenuSelectionItemEventArgs> ItemSelected;
-        /*
-        /// <summary>
-        /// Initializes menu select
-        /// </summary>
-        public MenuSelectionComponent()
-        {
-            InitializeComponent();
-        }*/
 
+        /// <summary>
+        /// Initializes Menu select
+        /// </summary>
         public MenuSelectionComponent()
         {
             InitializeComponent();
@@ -50,7 +45,7 @@ namespace PointOfSale
         void BrairheartBurgerClick(object sender, RoutedEventArgs e)
         {
             BriarheartBurger burg = new BriarheartBurger();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs(){item = burg});
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs(){Item = burg});
             
         }
 
@@ -62,7 +57,7 @@ namespace PointOfSale
         void DoubleDraghaurClick(object sender, RoutedEventArgs e)
         {
             DoubleDraugr drau = new DoubleDraugr();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = drau });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = drau });
         }
 
         /// <summary>
@@ -73,7 +68,7 @@ namespace PointOfSale
         void ThalmorTripleClick(object sender, RoutedEventArgs e)
         {
             ThalmorTriple thal = new ThalmorTriple();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = thal });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = thal });
         }
 
         /// <summary>
@@ -84,7 +79,7 @@ namespace PointOfSale
         void SmokehouseSkeletonClick(object sender, RoutedEventArgs e)
         {
             SmokehouseSkeleton skel = new SmokehouseSkeleton();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = skel });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = skel });
         }
 
         /// <summary>
@@ -95,7 +90,7 @@ namespace PointOfSale
         void GardenOrcOmeletteClick(object sender, RoutedEventArgs e)
         {
             GardenOrcOmelette orc = new GardenOrcOmelette();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = orc });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = orc });
         }
 
         /// <summary>
@@ -106,7 +101,7 @@ namespace PointOfSale
         void PhillyPoacherClick(object sender, RoutedEventArgs e)
         {
             PhillyPoacher poach = new PhillyPoacher();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = poach });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = poach });
         }
 
         /// <summary>
@@ -117,7 +112,7 @@ namespace PointOfSale
         void ThugsTBoneClick(object sender, RoutedEventArgs e)
         {
             ThugsTBone bone = new ThugsTBone();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = bone });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = bone });
         }
 
         /// <summary>
@@ -128,7 +123,7 @@ namespace PointOfSale
         void SailorSodaClick(object sender, RoutedEventArgs e)
         {
             SailorSoda soda = new SailorSoda();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = soda });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = soda });
         }
 
         /// <summary>
@@ -139,7 +134,7 @@ namespace PointOfSale
         void MarkarthMilkClick(object sender, RoutedEventArgs e)
         {
             MarkarthMilk milk = new MarkarthMilk();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = milk });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = milk });
         }
 
         /// <summary>
@@ -150,7 +145,7 @@ namespace PointOfSale
         void AretinoAppleJuiceClick(object sender, RoutedEventArgs e)
         {
             AretinoAppleJuice apple = new AretinoAppleJuice();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = apple });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = apple });
         }
 
         /// <summary>
@@ -161,7 +156,7 @@ namespace PointOfSale
         void CandlehearthCoffeeClick(object sender, RoutedEventArgs e)
         {
             CandlehearthCoffee coffee = new CandlehearthCoffee();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = coffee });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = coffee });
         }
 
         /// <summary>
@@ -172,7 +167,7 @@ namespace PointOfSale
         void WarriorWaterClick(object sender, RoutedEventArgs e)
         {
             WarriorWater water = new WarriorWater();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = water });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = water });
         }
 
         /// <summary>
@@ -183,7 +178,7 @@ namespace PointOfSale
         void VokunSaladClick(object sender, RoutedEventArgs e)
         {
             VokunSalad salad = new VokunSalad();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = salad });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = salad });
         }
 
         /// <summary>
@@ -194,7 +189,7 @@ namespace PointOfSale
         void FriedMiraakClick(object sender, RoutedEventArgs e)
         {
             FriedMiraak fried = new FriedMiraak();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = fried });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = fried });
         }
 
         /// <summary>
@@ -205,7 +200,7 @@ namespace PointOfSale
         void MadOtarGritsClick(object sender, RoutedEventArgs e)
         {
             MadOtarGrits grits = new MadOtarGrits();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = grits });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = grits });
         }
 
         /// <summary>
@@ -216,7 +211,7 @@ namespace PointOfSale
         void DragonbornWaffleFriesClick(object sender, RoutedEventArgs e)
         {
             DragonbornWaffleFries waffle = new DragonbornWaffleFries();
-            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { item = waffle });
+            ItemSelected?.Invoke(this, new MenuSelectionItemEventArgs() { Item = waffle });
         }
 
         

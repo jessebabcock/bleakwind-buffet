@@ -42,7 +42,7 @@ namespace PointOfSale.Entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void DoneClick(object sender, EventArgs e)
+        void DoneClick(object sender, RoutedEventArgs e)
         {
             MenuScreen();
         }
@@ -52,17 +52,17 @@ namespace PointOfSale.Entree
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void CancelClick(object sender, EventArgs e)
+        void CancelClick(object sender, RoutedEventArgs e)
         {
             MenuScreen();
         }
 
         /// <summary>
-        /// Sets the order control UI back to the menu screen
+        /// Sets the order control UI back to the Menu screen
         /// </summary>
         void MenuScreen()
         {
-           o.pageDisplay.Child = o.menu;
+           o.pageDisplay.Child = o.Menu;
         }
     }
 }

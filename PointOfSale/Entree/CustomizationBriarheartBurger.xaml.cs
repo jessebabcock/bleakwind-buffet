@@ -1,5 +1,5 @@
 ﻿///Author: Jesse Babcock
-///File: CustomizationDrauger.cs
+///File: CustomizationBriarheartBurger.cs
 ///Date: 9/27/2020
 using System;
 using System.Collections.Generic;
@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 namespace PointOfSale.Entree
 {
     /// <summary>
-    /// Interaction logic for CustomizationDrauger.xaml
+    /// Interaction logic for CustomizationBriarheartBurger.xaml
     /// </summary>
-    public partial class CustomizationDrauger : UserControl
+    public partial class CustomizationBriarheartBurger : UserControl
     {
         /// <summary>
         /// Holder for the order control
@@ -27,13 +27,13 @@ namespace PointOfSale.Entree
         private OrderComponent o;
 
         /// <summary>
-        /// Initializes Double Drauger customization
+        /// Initializes Briarheart Burger customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomizationDrauger(OrderComponent oc)
+        public CustomizationBriarheartBurger(OrderComponent oc)
         {
             InitializeComponent();
-            orderItem.Text = "Customizing Double Drauger";
+            orderItem.Text = "Customizing Briarheart Burger";
             o = oc;
         }
 
@@ -62,7 +62,7 @@ namespace PointOfSale.Entree
         /// </summary>
         void MenuScreen()
         {
-           o.pageDisplay.Child = o.Menu;
+            o.pageDisplay.Child = o.Menu;
         }
     }
 }

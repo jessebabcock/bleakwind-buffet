@@ -31,19 +31,19 @@ namespace PointOfSale
     public partial class OrderComponent : UserControl
     {
         /// <summary>
-        /// Creates a menu to be a reference when we traverse
+        /// Creates a Menu to be a reference when we traverse
         /// </summary>
-        public MenuSelectionComponent menu = new MenuSelectionComponent();
+        public MenuSelectionComponent Menu = new MenuSelectionComponent();
 
         /// <summary>
         /// Initialize order reciept
         /// </summary>
-        public OrderSum order = new OrderSum();
+        private OrderSum order = new OrderSum();
 
         /// <summary>
         /// Keeps track of order number
         /// </summary>
-        int orderNum = 1;
+        private int orderNum = 1;
 
         /// <summary>
         /// Initializes the order component
@@ -52,8 +52,8 @@ namespace PointOfSale
         {
             InitializeComponent();
             order.orderNumber.Text = $"Order# {orderNum}";
-            pageDisplay.Child = menu;
-            menu.ItemSelected += NewOrderClick;
+            pageDisplay.Child = Menu;
+            Menu.ItemSelected += NewOrderClick;
         }
 
        /// <summary>
@@ -64,30 +64,31 @@ namespace PointOfSale
        /// <param name="e"></param>
         void NewOrderClick(object sender, MenuSelectionItemEventArgs e)
         {
-            if(e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Entree.Entree)))
+            orderNum++;
+            if(e.Item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Entree.Entree)))
             {
-                if (e.item is BriarheartBurger) pageDisplay.Child = new CustomizationMenu(this);
-                else if (e.item is DoubleDraugr) pageDisplay.Child = new CustomizationDrauger(this);
-                else if (e.item is GardenOrcOmelette) pageDisplay.Child = new CustomizationGardenOrc(this);
-                else if (e.item is PhillyPoacher) pageDisplay.Child = new CustomizationPhilly(this);
-                else if (e.item is SmokehouseSkeleton) pageDisplay.Child = new CustomizationSmokehouse(this);
-                else if (e.item is ThalmorTriple) pageDisplay.Child = new CustomizationThalmor(this);
-                else if (e.item is ThugsTBone) pageDisplay.Child = new CustomizationThugsTBone(this);
+                if (e.Item is BriarheartBurger) pageDisplay.Child = new CustomizationBriarheartBurger(this);
+                else if (e.Item is DoubleDraugr) pageDisplay.Child = new CustomizationDrauger(this);
+                else if (e.Item is GardenOrcOmelette) pageDisplay.Child = new CustomizationGardenOrc(this);
+                else if (e.Item is PhillyPoacher) pageDisplay.Child = new CustomizationPhilly(this);
+                else if (e.Item is SmokehouseSkeleton) pageDisplay.Child = new CustomizationSmokehouse(this);
+                else if (e.Item is ThalmorTriple) pageDisplay.Child = new CustomizationThalmor(this);
+                else if (e.Item is ThugsTBone) pageDisplay.Child = new CustomizationThugsTBone(this);
             }
-            else if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Drinks.Drink)))
+            else if (e.Item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Drinks.Drink)))
             {
-                if (e.item is SailorSoda) pageDisplay.Child = new CustomSailorSoda(this);
-                else if (e.item is MarkarthMilk) pageDisplay.Child = new CustomMarkarthMilk(this);
-                else if (e.item is AretinoAppleJuice) pageDisplay.Child = new CustomAretinoAppleJuice(this);
-                else if (e.item is CandlehearthCoffee) pageDisplay.Child = new CustomCandlehearthCoffee(this);
-                else if (e.item is WarriorWater) pageDisplay.Child = new CustomWarriorWater(this);
+                if (e.Item is SailorSoda) pageDisplay.Child = new CustomSailorSoda(this);
+                else if (e.Item is MarkarthMilk) pageDisplay.Child = new CustomMarkarthMilk(this);
+                else if (e.Item is AretinoAppleJuice) pageDisplay.Child = new CustomAretinoAppleJuice(this);
+                else if (e.Item is CandlehearthCoffee) pageDisplay.Child = new CustomCandlehearthCoffee(this);
+                else if (e.Item is WarriorWater) pageDisplay.Child = new CustomWarriorWater(this);
             }
-            else if (e.item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Side.Side)))
+            else if (e.Item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Side.Side)))
             {
-                if (e.item is VokunSalad) pageDisplay.Child = new CustomVokunSalad(this);
-                else if (e.item is FriedMiraak) pageDisplay.Child = new CustomFriedMiraak(this);
-                else if (e.item is MadOtarGrits) pageDisplay.Child = new CustomMadOtarGrits(this);
-                else if (e.item is DragonbornWaffleFries) pageDisplay.Child = new CustomDragonbornWaffleFries(this);
+                if (e.Item is VokunSalad) pageDisplay.Child = new CustomVokunSalad(this);
+                else if (e.Item is FriedMiraak) pageDisplay.Child = new CustomFriedMiraak(this);
+                else if (e.Item is MadOtarGrits) pageDisplay.Child = new CustomMadOtarGrits(this);
+                else if (e.Item is DragonbornWaffleFries) pageDisplay.Child = new CustomDragonbornWaffleFries(this);
             }
         }
     }

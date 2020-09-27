@@ -26,19 +26,19 @@ namespace PointOfSale.Entree
             o = oc;
         }
 
-        void DoneClick(object sender, EventArgs e)
+        void DoneClick(object sender, RoutedEventArgs e)
         {
             MenuScreen();
         }
 
-        void CancelClick(object sender, EventArgs e)
+        void CancelClick(object sender, RoutedEventArgs e)
         {
             MenuScreen();
         }
 
         void MenuScreen()
         {
-            o.pageDisplay.Child = o.menu;
+            o.pageDisplay.Child = o.Menu;
         }
     }
 }

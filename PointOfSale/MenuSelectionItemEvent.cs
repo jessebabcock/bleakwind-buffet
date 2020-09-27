@@ -13,6 +13,6 @@ namespace PointOfSale
     /// </summary>
     public class MenuSelectionItemEventArgs : EventArgs
     {
-        public IOrderItem item;
+        public IOrderItem Item;
     }
 }

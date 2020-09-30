@@ -43,7 +43,7 @@ namespace PointOfSale
         /// <summary>
         /// Keeps track of order number
         /// </summary>
-        private int orderNum = 1;
+        private int orderNum = 0;
 
         /// <summary>
         /// Initializes the order component
@@ -65,6 +65,7 @@ namespace PointOfSale
         void NewOrderClick(object sender, MenuSelectionItemEventArgs e)
         {
             orderNum++;
+            order.Num = orderNum.ToString();
             if(e.Item.GetType().IsSubclassOf(typeof(BleakwindBuffet.Data.Entree.Entree)))
             {
                 if (e.Item is BriarheartBurger) pageDisplay.Child = new CustomizationBriarheartBurger(this);

@@ -37,7 +37,7 @@ namespace PointOfSale
             }
         }
         /// <summary>
-        /// Initializes order reciept
+        /// Initializes order summary
         /// </summary>
         public OrderSum()
         {

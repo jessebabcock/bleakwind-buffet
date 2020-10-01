@@ -20,30 +20,24 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for OrderSum.xaml
     /// </summary>
-    public partial class OrderSum : UserControl, INotifyPropertyChanged
+    public partial class OrderSum : UserControl
     {
 
-        private string num;
+        
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public String Num
-        {
-            get => num;
-            set
-            {
-                num = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(num));
-            }
-        }
         /// <summary>
         /// Initializes order summary
         /// </summary>
         public OrderSum()
         {
             InitializeComponent();
+            orderNum.Text = "Order Holder";
         }
 
+        public void NewOrder()
+        {
+            //num++;
+        }
         
     }
 }

@@ -30,10 +30,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Name="orderItem" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <CheckBox Grid.Row="3" VerticalAlignment="Center">Broccoli</CheckBox>
-        <CheckBox Grid.Row="4" VerticalAlignment="Center">Mushrooms</CheckBox>
-        <CheckBox Grid.Row="5" VerticalAlignment="Center">Tomato</CheckBox>
-        <CheckBox Grid.Row="6" VerticalAlignment="Center">Cheddar</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Broccoli}" Grid.Row="3" VerticalAlignment="Center">Broccoli</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mushrooms}" Grid.Row="4" VerticalAlignment="Center">Mushrooms</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Tomato}" Grid.Row="5" VerticalAlignment="Center">Tomato</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Cheddar}" Grid.Row="6" VerticalAlignment="Center">Cheddar</CheckBox>
         <Button Click="DoneClick" Grid.Row="9" Grid.Column="1" Margin="4" Width="100" Height="50" HorizontalAlignment="Right">Done</Button>
         <Button Click="CancelClick" Grid.Row="2" Grid.Column="0" Margin="4" Width="60"  HorizontalAlignment="Left">Cancel</Button>
     </Grid>

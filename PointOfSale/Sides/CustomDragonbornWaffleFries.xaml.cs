@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomDragonbornWaffleFries.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Side;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Sides
         /// Initializes Dragonborn Waffle Fries customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomDragonbornWaffleFries(OrderComponent oc)
+        public CustomDragonbornWaffleFries(OrderComponent oc, DragonbornWaffleFries dwf)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Dragonborn Waffle Fries";
             o = oc;
+            DataContext = dwf;
         }
 
         /// <summary>
@@ -63,6 +65,36 @@ namespace PointOfSale.Sides
         void MenuScreen()
         {
             o.pageDisplay.Child = o.Menu;
+        }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckSize(object sender, RoutedEventArgs e)
+        {
+            if (smallBox.IsChecked == true)
+            {
+                mediumBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (mediumBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (largeBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                mediumBox.IsEnabled = false;
+            }
+            else
+            {
+                smallBox.IsEnabled = true;
+                mediumBox.IsEnabled = true;
+                largeBox.IsEnabled = true;
+            }
         }
     }
 }

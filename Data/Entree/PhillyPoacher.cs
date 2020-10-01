@@ -10,14 +10,17 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entree
 {
     /// <summary>
     /// Public class for Philly Poacher
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Ingredient variables set to true
         /// </summary>
@@ -70,7 +73,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool Sirloin
         {
             get { return sirloin; }
-            set { sirloin = value; }
+            set
+            {
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+            }
         }
 
         /// <summary>
@@ -79,7 +86,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool Onion
         {
             get { return onion; }
-            set { onion = value; }
+            set
+            {
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+            }
         }
 
         /// <summary>
@@ -88,7 +99,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool Roll
         {
             get { return roll; }
-            set { roll = value; }
+            set
+            {
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+            }
         }
 
         /// <summary>

@@ -31,11 +31,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Name="orderItem" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <CheckBox Grid.Row="3" VerticalAlignment="Center">Bun</CheckBox>
-        <CheckBox Grid.Row="4" VerticalAlignment="Center">Ketchup</CheckBox>
-        <CheckBox Grid.Row="5" VerticalAlignment="Center">Mustard</CheckBox>
-        <CheckBox Grid.Row="6" VerticalAlignment="Center">Pickle</CheckBox>
-        <CheckBox Grid.Row="7" VerticalAlignment="Center">Cheese</CheckBox>
+        <CheckBox Name="bunBox"  Grid.Row="3" VerticalAlignment="Center" IsChecked="{Binding Path=Bun}">Bun</CheckBox>
+        <CheckBox Name="ketchupBox" Grid.Row="4" VerticalAlignment="Center" IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
+        <CheckBox Name="mustardBox" Grid.Row="5" VerticalAlignment="Center" IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
+        <CheckBox Name="pickleBox" Grid.Row="6" VerticalAlignment="Center" IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
+        <CheckBox Name="cheeseBox" Grid.Row="7" VerticalAlignment="Center" IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
         <Button Click="DoneClick" Grid.Row="9" Grid.Column="1" Margin="4" Width="100" Height="50" HorizontalAlignment="Right">Done</Button>
         <Button Click="CancelClick" Grid.Row="2" Grid.Column="0" Margin="4" Width="60"  HorizontalAlignment="Left">Cancel</Button>
     </Grid>

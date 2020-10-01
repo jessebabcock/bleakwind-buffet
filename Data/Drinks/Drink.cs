@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -13,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <virutal>
         /// Size of drink
         /// </virtual>
-        public virtual Size Size { get; set; }
+        public virtual Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// Price of drink

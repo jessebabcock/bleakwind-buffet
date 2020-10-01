@@ -30,16 +30,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock Name="orderItem" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <CheckBox Grid.Row="3" VerticalAlignment="Center">Bun</CheckBox>
-        <CheckBox Grid.Row="4" VerticalAlignment="Center">Ketchup</CheckBox>
-        <CheckBox Grid.Row="5" VerticalAlignment="Center">Mustard</CheckBox>
-        <CheckBox Grid.Row="6" VerticalAlignment="Center">Pickle</CheckBox>
-        <CheckBox Grid.Row="7" VerticalAlignment="Center">Cheese</CheckBox>
-        <CheckBox Grid.Row="8" VerticalAlignment="Center">Tomato</CheckBox>
-        <CheckBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">Lettuce</CheckBox>
-        <CheckBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">Mayo</CheckBox>
-        <CheckBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">Bacon</CheckBox>
-        <CheckBox Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">Egg</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Bun}" Grid.Row="3" VerticalAlignment="Center">Bun</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Ketchup}" Grid.Row="4" VerticalAlignment="Center">Ketchup</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mustard}" Grid.Row="5" VerticalAlignment="Center">Mustard</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Pickle}" Grid.Row="6" VerticalAlignment="Center">Pickle</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Cheese}" Grid.Row="7" VerticalAlignment="Center">Cheese</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Tomato}" Grid.Row="8" VerticalAlignment="Center">Tomato</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Lettuce}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">Lettuce</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mayo}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">Mayo</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Bacon}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">Bacon</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Egg}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">Egg</CheckBox>
         <Button Click="DoneClick" Grid.Row="9" Grid.Column="1" Margin="4" Width="100" Height="50" HorizontalAlignment="Right">Done</Button>
         <Button Click="CancelClick" Grid.Row="2" Grid.Column="0" Margin="4" Width="60"  HorizontalAlignment="Left">Cancel</Button>
     </Grid>

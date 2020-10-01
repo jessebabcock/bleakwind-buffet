@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomAretinoAppleJuice.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Drinks
         /// Initializes Aretino Apple Juice customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomAretinoAppleJuice(OrderComponent oc)
+        public CustomAretinoAppleJuice(OrderComponent oc, AretinoAppleJuice aaj)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Aretino Apple Juice";
             o = oc;
+            DataContext = aaj;
         }
 
         /// <summary>

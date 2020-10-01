@@ -9,14 +9,17 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Public class for Sailor Soda
     /// </summary>
-    public class SailorSoda : Drink, IOrderItem
+    public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Gets price in double
         /// </summary>
@@ -76,7 +79,11 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+            }
         }
 
         /// <summary>
@@ -85,7 +92,29 @@ namespace BleakwindBuffet.Data.Drinks
         public SodaFlavor Flavor
         {
             get { return flavor; }
-            set { flavor = value; }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+            }
+        }
+
+        /// <summary>
+        /// private variable to size defaulted small
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Checks for size
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
         }
 
         /// <summary>

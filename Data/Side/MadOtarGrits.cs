@@ -10,14 +10,17 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Side
 {
     /// <summary>
     /// Public class for Mad Otar Grits
     /// </summary>
-    public class MadOtarGrits : Side, IOrderItem
+    public class MadOtarGrits : Side, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Double for price
         /// </summary>
@@ -61,6 +64,23 @@ namespace BleakwindBuffet.Data.Side
             }
         }
 
+        /// <summary>
+        /// private variable to size defaulted small
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Checks for size
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
+        }
 
         /// <summary>
         /// Prints what size it is 

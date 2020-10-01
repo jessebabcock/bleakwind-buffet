@@ -85,5 +85,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             dw.Size = size;
             Assert.Equal(name, dw.ToString());
         }
+
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            var dw = new DragonbornWaffleFries();
+
+            Assert.PropertyChanged(dw, "Size", () =>
+            {
+                dw.Size = Size.Small;
+            });
+
+            Assert.PropertyChanged(dw, "Size", () =>
+            {
+                dw.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(dw, "Size", () =>
+            {
+                dw.Size = Size.Large;
+            });
+        }
     }
 }

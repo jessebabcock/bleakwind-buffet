@@ -10,14 +10,17 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Side
 {
     /// <summary>
     /// Public class for Dragonborn Waffle Fries
     /// </summary>
-    public class DragonbornWaffleFries : Side, IOrderItem
+    public class DragonbornWaffleFries : Side, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Double for price
         /// </summary>
@@ -57,6 +60,24 @@ namespace BleakwindBuffet.Data.Side
             {
                 List<string> instructions = new List<string>();
                 return instructions;
+            }
+        }
+
+        /// <summary>
+        /// private variable to size defaulted small
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Checks for size
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
             }
         }
 

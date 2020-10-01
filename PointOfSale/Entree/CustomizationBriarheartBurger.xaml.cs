@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationBriarheartBurger.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Entree
         /// Initializes Briarheart Burger customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomizationBriarheartBurger(OrderComponent oc)
+        public CustomizationBriarheartBurger(OrderComponent oc, BriarheartBurger burg)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Briarheart Burger";
             o = oc;
+            DataContext = burg;
         }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace PointOfSale.Entree
         void DoneClick(object sender, RoutedEventArgs e)
         {
             MenuScreen();
+            o.order.NewOrder();
         }
 
         /// <summary>

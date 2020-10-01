@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationGardenOrc.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Entree
         /// Initializes Garden Orc Omelette customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomizationGardenOrc(OrderComponent oc)
+        public CustomizationGardenOrc(OrderComponent oc, GardenOrcOmelette goo)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Garden Orc Omelette";
             o = oc;
+            DataContext = goo;
         }
 
         /// <summary>

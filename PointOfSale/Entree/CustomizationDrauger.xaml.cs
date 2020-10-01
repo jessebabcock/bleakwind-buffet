@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationDrauger.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Entree
         /// Initializes Double Drauger customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomizationDrauger(OrderComponent oc)
+        public CustomizationDrauger(OrderComponent oc, DoubleDraugr dd)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Double Drauger";
             o = oc;
+            DataContext = dd;
         }
 
         /// <summary>

@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationPhilly.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Entree
         /// Initializes Philly Poacher customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomizationPhilly(OrderComponent oc)
+        public CustomizationPhilly(OrderComponent oc, PhillyPoacher poach)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Philly Poacher";
             o = oc;
+            DataContext = poach;
         }
 
         /// <summary>

@@ -10,14 +10,16 @@ using System.Text;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Side
 {
     /// <summary>
     /// Public class for Vokun Salad
     /// </summary>
-    public class VokunSalad : Side, IOrderItem
+    public class VokunSalad : Side, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Double for price
@@ -48,6 +50,24 @@ namespace BleakwindBuffet.Data.Side
                 return calories;
             }
             
+        }
+
+        /// <summary>
+        /// private variable to size defaulted small
+        /// </summary>
+        private Size size;
+
+        /// <summary>
+        /// Checks for size
+        /// </summary>
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+            }
         }
 
         /// <summary>

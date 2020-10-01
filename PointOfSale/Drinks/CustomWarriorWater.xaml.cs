@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomWarriorWater.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Drinks
         /// Initializes Warrior Water customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomWarriorWater(OrderComponent oc)
+        public CustomWarriorWater(OrderComponent oc, WarriorWater ww)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Warrior Water";
             o = oc;
+            DataContext = ww;
         }
 
         /// <summary>

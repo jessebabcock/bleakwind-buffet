@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomSailorSoda.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Drinks
         /// Initializes Sailor Soda customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomSailorSoda(OrderComponent oc)
+        public CustomSailorSoda(OrderComponent oc, SailorSoda ss)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Sailor Soda";
             o = oc;
+            DataContext = ss;
         }
 
         /// <summary>

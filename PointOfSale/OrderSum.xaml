@@ -13,7 +13,7 @@
              d:DesignHeight="450" d:DesignWidth="150">
     <Grid>
         <DockPanel Grid.Column="1" Margin="10,45,10,0">
-            <TextBlock Name="orderNumber" Grid.Column="1" TextAlignment="Center" DockPanel.Dock="Top" Text="OrderHolder"/>
+            <TextBlock Name="orderNum" Grid.Column="1" TextAlignment="Center" DockPanel.Dock="Top" Text="{Binding Path = Num}"/>
             <ListView  Name="orderMenuList" DockPanel.Dock="Top" Height="300"/>
             <StackPanel DockPanel.Dock="Bottom">
                 <TextBlock Text="subHolder" Name="subCalc" TextAlignment="Center"/>

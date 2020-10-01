@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomMadOtarGrits.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Side;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Sides
         /// Initializes Mad Otar Grits customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomMadOtarGrits(OrderComponent oc)
+        public CustomMadOtarGrits(OrderComponent oc, MadOtarGrits mog)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Mad Otar Grits";
             o = oc;
+            DataContext = mog;
         }
 
         /// <summary>
@@ -63,6 +65,36 @@ namespace PointOfSale.Sides
         void MenuScreen()
         {
             o.pageDisplay.Child = o.Menu;
+        }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckSize(object sender, RoutedEventArgs e)
+        {
+            if (smallBox.IsChecked == true)
+            {
+                mediumBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (mediumBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (largeBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                mediumBox.IsEnabled = false;
+            }
+            else
+            {
+                smallBox.IsEnabled = true;
+                mediumBox.IsEnabled = true;
+                largeBox.IsEnabled = true;
+            }
         }
     }
 }

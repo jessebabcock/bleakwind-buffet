@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationThalmor.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Entree
         /// Initializes Thalmor Triple customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomizationThalmor(OrderComponent oc)
+        public CustomizationThalmor(OrderComponent oc, ThalmorTriple tt)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Thalmor Triple";
             o = oc;
+            DataContext = tt;
         }
 
         /// <summary>

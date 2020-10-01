@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomMarkarthMilk.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Drinks
         /// Initializes Markarth Milk customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomMarkarthMilk(OrderComponent oc)
+        public CustomMarkarthMilk(OrderComponent oc, MarkarthMilk mm)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Markarth Milk";
             o = oc;
+            DataContext = mm;
         }
 
         /// <summary>

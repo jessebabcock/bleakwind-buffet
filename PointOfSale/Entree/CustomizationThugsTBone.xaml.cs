@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Entree;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,11 +20,12 @@ namespace PointOfSale.Entree
     public partial class CustomizationThugsTBone : UserControl
     {
         private OrderComponent o;
-        public CustomizationThugsTBone(OrderComponent oc)
+        public CustomizationThugsTBone(OrderComponent oc, ThugsTBone ttb)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Thugs T-Bone";
             o = oc;
+            DataContext = ttb;
         }
 
         void DoneClick(object sender, RoutedEventArgs e)

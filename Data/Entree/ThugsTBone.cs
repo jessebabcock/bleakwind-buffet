@@ -10,6 +10,7 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entree
 {
@@ -18,6 +19,7 @@ namespace BleakwindBuffet.Data.Entree
     /// </summary>
     public class ThugsTBone : Entree, IOrderItem
     {
+
         /// <summary>
         /// Double for price
         /// </summary>
@@ -35,6 +37,9 @@ namespace BleakwindBuffet.Data.Entree
         /// Uint for calories
         /// </summary>
         private uint calories;
+
+       
+
         public override uint Calories
         {
             get

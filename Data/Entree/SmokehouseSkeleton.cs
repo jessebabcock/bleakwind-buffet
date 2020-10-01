@@ -10,14 +10,17 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Side;
 using BleakwindBuffet.Data.Drinks;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entree
 {
     /// <summary>
     /// Public class for Smokehouse Skeleton
     /// </summary>
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// Ingredient variables set to true
         /// </summary>
@@ -71,7 +74,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool SausageLink
         {
             get { return sausageLink; }
-            set { sausageLink = value; }
+            set
+            {
+                sausageLink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+            }
         }
 
         /// <summary>
@@ -80,7 +87,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool Egg
         {
             get { return egg; }
-            set { egg = value; }
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+            }
         }
 
         /// <summary>
@@ -89,7 +100,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool HashBrowns
         {
             get { return hashBrowns; }
-            set { hashBrowns = value; }
+            set
+            {
+                hashBrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+            }
         }
 
         /// <summary>
@@ -98,7 +113,11 @@ namespace BleakwindBuffet.Data.Entree
         public bool Pancake
         {
             get { return pancake; }
-            set { pancake = value; }
+            set
+            {
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+            }
         }
 
         /// <summary>

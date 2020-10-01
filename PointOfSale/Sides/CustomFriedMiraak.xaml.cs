@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomFriedMiraak.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Side;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Sides
         /// Initializes Fried Miraak customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomFriedMiraak(OrderComponent oc)
+        public CustomFriedMiraak(OrderComponent oc, FriedMiraak fm)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Fried Miraak";
             o = oc;
+            DataContext = fm;
         }
 
         /// <summary>
@@ -63,6 +65,36 @@ namespace PointOfSale.Sides
         void MenuScreen()
         {
             o.pageDisplay.Child = o.Menu;
+        }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckSize(object sender, RoutedEventArgs e)
+        {
+            if (smallBox.IsChecked == true)
+            {
+                mediumBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (mediumBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                largeBox.IsEnabled = false;
+            }
+            else if (largeBox.IsChecked == true)
+            {
+                smallBox.IsEnabled = false;
+                mediumBox.IsEnabled = false;
+            }
+            else
+            {
+                smallBox.IsEnabled = true;
+                mediumBox.IsEnabled = true;
+                largeBox.IsEnabled = true;
+            }
         }
     }
 }

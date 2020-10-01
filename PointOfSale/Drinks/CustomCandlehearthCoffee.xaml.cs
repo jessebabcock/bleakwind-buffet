@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomCandlehearthCoffee.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,11 +31,12 @@ namespace PointOfSale.Drinks
         /// Initializes Candlehearth Coffee customization
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
-        public CustomCandlehearthCoffee(OrderComponent oc)
+        public CustomCandlehearthCoffee(OrderComponent oc, CandlehearthCoffee cc)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Candlehearth Coffee";
             o = oc;
+            DataContext = cc;
         }
 
         /// <summary>

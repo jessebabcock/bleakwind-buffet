@@ -1,7 +1,9 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomAretinoAppleJuice.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,6 +28,7 @@ namespace PointOfSale.Drinks
         /// Holder for the order control
         /// </summary>
         private OrderComponent o;
+        private AretinoAppleJuice juice;
 
         /// <summary>
         /// Initializes Aretino Apple Juice customization
@@ -36,6 +39,7 @@ namespace PointOfSale.Drinks
             InitializeComponent();
             orderItem.Text = "Customizing Aretino Apple Juice";
             o = oc;
+            juice = aaj;
             DataContext = aaj;
         }
 
@@ -46,6 +50,10 @@ namespace PointOfSale.Drinks
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(juice);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,28 @@ namespace PointOfSale.Drinks
         /// </summary>
         void MenuScreen()
         {
-           o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
+        }
+
+        /// <summary>
+        /// Loads the size into radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SizeLoader(object sender, RoutedEventArgs e)
+        {
+            if (juice.Size == BleakwindBuffet.Data.Enums.Size.Small)
+            {
+                smallBox.IsChecked = true;
+            }
+            else if (juice.Size == BleakwindBuffet.Data.Enums.Size.Medium)
+            {
+                mediumBox.IsChecked = true;
+            }
+            else
+            {
+                largeBox.IsChecked = true;
+            }
         }
 
         /// <summary>
@@ -74,26 +103,33 @@ namespace PointOfSale.Drinks
         /// <param name="e"></param>
         void CheckSize(object sender, RoutedEventArgs e)
         {
-            if (smallBox.IsChecked == true)
+            if(smallBox.IsChecked == true)
             {
-                mediumBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                juice.Size = BleakwindBuffet.Data.Enums.Size.Small;
+                smallBox.IsChecked = true;
             }
             else if(mediumBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                juice.Size = BleakwindBuffet.Data.Enums.Size.Medium;
+                mediumBox.IsChecked = true;
             }
             else if (largeBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                mediumBox.IsEnabled = false;
+                juice.Size = BleakwindBuffet.Data.Enums.Size.Large;
+                largeBox.IsChecked = true;
             }
-            else
+        }
+
+        /// <summary>
+        /// Checks to make sure the user can only select one size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CheckIce(object sender, RoutedEventArgs e)
+        {
+            if (iceBox.IsChecked == true)
             {
-                smallBox.IsEnabled = true;
-                mediumBox.IsEnabled = true;
-                largeBox.IsEnabled = true;
+                juice.Ice = true;
             }
         }
     }

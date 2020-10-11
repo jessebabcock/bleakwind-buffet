@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationGardenOrc.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace PointOfSale.Entree
         /// </summary>
         private OrderComponent o;
 
+        GardenOrcOmelette orc;
+
         /// <summary>
         /// Initializes Garden Orc Omelette customization
         /// </summary>
@@ -36,7 +39,8 @@ namespace PointOfSale.Entree
             InitializeComponent();
             orderItem.Text = "Customizing Garden Orc Omelette";
             o = oc;
-            DataContext = goo;
+            orc = goo;
+            DataContext = o;
         }
 
         /// <summary>
@@ -46,6 +50,10 @@ namespace PointOfSale.Entree
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(orc);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,7 @@ namespace PointOfSale.Entree
         /// </summary>
         void MenuScreen()
         {
-           o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
         }
     }
 }

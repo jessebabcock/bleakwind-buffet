@@ -254,6 +254,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectName()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.Equal("Thalmor Triple", tt.Name);
+        }
+
+        [Fact]
         public void ChangingBunNotifiesBunProperty()
         {
             var tt = new ThalmorTriple();

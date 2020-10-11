@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <virutal>
         /// Size of drink
         /// </virtual>
-        public virtual Size Size { get; set; } = Size.Small;
+        public virtual Size Size { get; set; }
 
         /// <summary>
         /// Price of drink

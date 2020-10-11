@@ -6,6 +6,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data
@@ -13,7 +14,7 @@ namespace BleakwindBuffet.Data
     /// <summary>
     /// Interface for the menu items
     /// </summary>
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     {
 
         /// <summary>

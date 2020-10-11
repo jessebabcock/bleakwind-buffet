@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomMadOtarGrits.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Side;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace PointOfSale.Sides
         /// </summary>
         private OrderComponent o;
 
+        MadOtarGrits mad;
+
         /// <summary>
         /// Initializes Mad Otar Grits customization
         /// </summary>
@@ -36,7 +39,8 @@ namespace PointOfSale.Sides
             InitializeComponent();
             orderItem.Text = "Customizing Mad Otar Grits";
             o = oc;
-            DataContext = mog;
+            mad = mog;
+            DataContext = mad;
         }
 
         /// <summary>
@@ -46,6 +50,10 @@ namespace PointOfSale.Sides
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(mad);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,7 @@ namespace PointOfSale.Sides
         /// </summary>
         void MenuScreen()
         {
-            o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
         }
 
         /// <summary>
@@ -76,24 +84,18 @@ namespace PointOfSale.Sides
         {
             if (smallBox.IsChecked == true)
             {
-                mediumBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                mad.Size = BleakwindBuffet.Data.Enums.Size.Small;
+                smallBox.IsChecked = true;
             }
             else if (mediumBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                mad.Size = BleakwindBuffet.Data.Enums.Size.Medium;
+                mediumBox.IsChecked = true;
             }
             else if (largeBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                mediumBox.IsEnabled = false;
-            }
-            else
-            {
-                smallBox.IsEnabled = true;
-                mediumBox.IsEnabled = true;
-                largeBox.IsEnabled = true;
+                mad.Size = BleakwindBuffet.Data.Enums.Size.Large;
+                largeBox.IsChecked = true;
             }
         }
     }

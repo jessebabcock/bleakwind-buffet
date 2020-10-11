@@ -1,9 +1,11 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomFriedMiraak.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Side;
 using System;
 using System.Collections.Generic;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +29,8 @@ namespace PointOfSale.Sides
         /// </summary>
         private OrderComponent o;
 
+        FriedMiraak fried;
+
         /// <summary>
         /// Initializes Fried Miraak customization
         /// </summary>
@@ -36,7 +40,8 @@ namespace PointOfSale.Sides
             InitializeComponent();
             orderItem.Text = "Customizing Fried Miraak";
             o = oc;
-            DataContext = fm;
+            fried = fm;
+            DataContext = fried;
         }
 
         /// <summary>
@@ -46,6 +51,10 @@ namespace PointOfSale.Sides
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(fried);
+            }
             MenuScreen();
         }
 
@@ -64,7 +73,7 @@ namespace PointOfSale.Sides
         /// </summary>
         void MenuScreen()
         {
-            o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
         }
 
         /// <summary>
@@ -76,24 +85,18 @@ namespace PointOfSale.Sides
         {
             if (smallBox.IsChecked == true)
             {
-                mediumBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                fried.Size = BleakwindBuffet.Data.Enums.Size.Small;
+                smallBox.IsChecked = true;
             }
             else if (mediumBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                fried.Size = BleakwindBuffet.Data.Enums.Size.Medium;
+                mediumBox.IsChecked = true;
             }
             else if (largeBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                mediumBox.IsEnabled = false;
-            }
-            else
-            {
-                smallBox.IsEnabled = true;
-                mediumBox.IsEnabled = true;
-                largeBox.IsEnabled = true;
+                fried.Size = BleakwindBuffet.Data.Enums.Size.Large;
+                largeBox.IsChecked = true;
             }
         }
     }

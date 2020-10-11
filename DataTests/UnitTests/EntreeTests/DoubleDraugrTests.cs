@@ -214,6 +214,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectName()
+        {
+            DoubleDraugr dd = new DoubleDraugr();
+            Assert.Equal("Double Draugr", dd.Name);
+        }
+
+        [Fact]
         public void ChangingBunNotifiesBunProperty()
         {
             var dd = new DoubleDraugr();

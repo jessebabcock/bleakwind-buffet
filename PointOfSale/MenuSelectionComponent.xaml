@@ -47,6 +47,7 @@
         <Button Click="FriedMiraakClick" Grid.Row="3" Grid.Column="2" Margin="4">Fried Miraak</Button>
         <Button Click="MadOtarGritsClick" Grid.Row="4" Grid.Column="2" Margin="4">Mad Otar Grits</Button>
         <Button Click="DragonbornWaffleFriesClick" Grid.Row="5" Grid.Column="2" Margin="4">Dragonborn Waffle Fries</Button>
+        <Button Click="ComboClick" Grid.Row="8" Grid.Column="2" Margin="4">Combos</Button>
     </Grid>
     
 </UserControl>

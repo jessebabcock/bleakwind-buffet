@@ -138,6 +138,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectName()
+        {
+            SmokehouseSkeleton ss = new SmokehouseSkeleton();
+            Assert.Equal("Smokehouse Skeleton", ss.Name);
+        }
+
+        [Fact]
         public void ChangingSausageLinkNotifiesSausageLinkProperty()
         {
             var ss = new SmokehouseSkeleton();

@@ -22,6 +22,11 @@ namespace BleakwindBuffet.Data.Entree
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Name
+        {
+            get => ToString();
+        }
+
         /// <summary>
         /// Ingredient variables set to true
         /// </summary>

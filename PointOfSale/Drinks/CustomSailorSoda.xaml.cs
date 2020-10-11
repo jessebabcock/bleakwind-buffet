@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomSailorSoda.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace PointOfSale.Drinks
         /// </summary>
         private OrderComponent o;
 
+        SailorSoda soda;
+
         /// <summary>
         /// Initializes Sailor Soda customization
         /// </summary>
@@ -36,7 +39,8 @@ namespace PointOfSale.Drinks
             InitializeComponent();
             orderItem.Text = "Customizing Sailor Soda";
             o = oc;
-            DataContext = ss;
+            soda = ss;
+            DataContext = soda;
         }
 
         /// <summary>
@@ -46,6 +50,10 @@ namespace PointOfSale.Drinks
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(soda);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,53 @@ namespace PointOfSale.Drinks
         /// </summary>
         void MenuScreen()
         {
-            o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
+        }
+
+        /// <summary>
+        /// Loads the size into radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SizeLoader(object sender, RoutedEventArgs e)
+        {
+            if (soda.Size == BleakwindBuffet.Data.Enums.Size.Small)
+            {
+                smallBox.IsChecked = true;
+            }
+            else if (soda.Size == BleakwindBuffet.Data.Enums.Size.Medium)
+            {
+                mediumBox.IsChecked = true;
+            }
+            else
+            {
+                largeBox.IsChecked = true;
+            }
+
+            if (soda.Flavor == BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry)
+            {
+                blackberry.IsChecked = true;
+            }
+            else if (soda.Flavor == BleakwindBuffet.Data.Enums.SodaFlavor.Cherry)
+            {
+                cherry.IsChecked = true;
+            }
+            else if (soda.Flavor == BleakwindBuffet.Data.Enums.SodaFlavor.Lemon)
+            {
+                lemon.IsChecked = true;
+            }
+            else if (soda.Flavor == BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit)
+            {
+                grapefruit.IsChecked = true;
+            }
+            else if (soda.Flavor == BleakwindBuffet.Data.Enums.SodaFlavor.Peach)
+            {
+                peach.IsChecked = true;
+            }
+            else if (soda.Flavor == BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon)
+            {
+                watermelon.IsChecked = true;
+            }
         }
 
         /// <summary>
@@ -76,24 +130,18 @@ namespace PointOfSale.Drinks
         {
             if (smallBox.IsChecked == true)
             {
-                mediumBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                soda.Size = BleakwindBuffet.Data.Enums.Size.Small;
+                smallBox.IsChecked = true;
             }
             else if (mediumBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                soda.Size = BleakwindBuffet.Data.Enums.Size.Medium;
+                mediumBox.IsChecked = true;
             }
             else if (largeBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                mediumBox.IsEnabled = false;
-            }
-            else
-            {
-                smallBox.IsEnabled = true;
-                mediumBox.IsEnabled = true;
-                largeBox.IsEnabled = true;
+                soda.Size = BleakwindBuffet.Data.Enums.Size.Large;
+                largeBox.IsChecked = true;
             }
         }
 
@@ -106,60 +154,38 @@ namespace PointOfSale.Drinks
         {
             if(blackberry.IsChecked == true)
             {
-                grapefruit.IsEnabled = false;
-                lemon.IsEnabled = false;
-                peach.IsEnabled = false;
-                watermelon.IsEnabled = false;
-                cherry.IsEnabled = false;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry;
+                blackberry.IsChecked = true;
             }
             else if (cherry.IsChecked == true)
             {
-                grapefruit.IsEnabled = false;
-                lemon.IsEnabled = false;
-                peach.IsEnabled = false;
-                watermelon.IsEnabled = false;
-                blackberry.IsEnabled = false;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
+                cherry.IsChecked = true;
             }
             else if (lemon.IsChecked == true)
             {
-                grapefruit.IsEnabled = false;
-                blackberry.IsEnabled = false;
-                peach.IsEnabled = false;
-                watermelon.IsEnabled = false;
-                cherry.IsEnabled = false;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Lemon;
+                lemon.IsChecked = true;
             }
             else if (grapefruit.IsChecked == true)
             {
-                blackberry.IsEnabled = false;
-                lemon.IsEnabled = false;
-                peach.IsEnabled = false;
-                watermelon.IsEnabled = false;
-                cherry.IsEnabled = false;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit;
+                grapefruit.IsChecked = true;
             }
             else if (watermelon.IsChecked == true)
             {
-                grapefruit.IsEnabled = false;
-                lemon.IsEnabled = false;
-                peach.IsEnabled = false;
-                blackberry.IsEnabled = false;
-                cherry.IsEnabled = false;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon;
+                watermelon.IsChecked = true;
             }
             else if (peach.IsChecked == true)
             {
-                grapefruit.IsEnabled = false;
-                lemon.IsEnabled = false;
-                blackberry.IsEnabled = false;
-                watermelon.IsEnabled = false;
-                cherry.IsEnabled = false;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Peach;
+                peach.IsChecked = true;
             }
             else
             {
-                peach.IsEnabled = true;
-                grapefruit.IsEnabled = true;
-                lemon.IsEnabled = true;
-                blackberry.IsEnabled = true;
-                watermelon.IsEnabled = true;
-                cherry.IsEnabled = true;
+                soda.Flavor = BleakwindBuffet.Data.Enums.SodaFlavor.Cherry;
+                cherry.IsChecked = true;
             }
         }
     }

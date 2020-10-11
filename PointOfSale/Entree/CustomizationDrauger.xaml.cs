@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationDrauger.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace PointOfSale.Entree
         /// </summary>
         private OrderComponent o;
 
+        DoubleDraugr drau;
+
         /// <summary>
         /// Initializes Double Drauger customization
         /// </summary>
@@ -36,7 +39,8 @@ namespace PointOfSale.Entree
             InitializeComponent();
             orderItem.Text = "Customizing Double Drauger";
             o = oc;
-            DataContext = dd;
+            drau = dd;
+            DataContext = drau;
         }
 
         /// <summary>
@@ -46,6 +50,10 @@ namespace PointOfSale.Entree
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(drau);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,7 @@ namespace PointOfSale.Entree
         /// </summary>
         void MenuScreen()
         {
-           o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
         }
     }
 }

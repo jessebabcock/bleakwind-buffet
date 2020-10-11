@@ -17,8 +17,14 @@ namespace BleakwindBuffet.Data.Entree
     /// <summary>
     /// Class for Thugs T-Bone
     /// </summary>
-    public class ThugsTBone : Entree, IOrderItem
+    public class ThugsTBone : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        {
+            get => ToString();
+        }
 
         /// <summary>
         /// Double for price
@@ -37,8 +43,6 @@ namespace BleakwindBuffet.Data.Entree
         /// Uint for calories
         /// </summary>
         private uint calories;
-
-       
 
         public override uint Calories
         {

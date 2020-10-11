@@ -138,6 +138,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectName()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.Equal("Garden Orc Omelette", goo.Name);
+        }
+
+        [Fact]
         public void ChangingBroccoliNotifiesBroccoliProperty()
         {
             var goo = new GardenOrcOmelette();

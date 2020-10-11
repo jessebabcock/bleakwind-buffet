@@ -158,6 +158,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             Assert.Equal(name, cc.ToString());
         }
 
+        [Theory]
+        [InlineData(true, Size.Small, "Small Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Medium, "Medium Decaf Candlehearth Coffee")]
+        [InlineData(true, Size.Large, "Large Decaf Candlehearth Coffee")]
+        [InlineData(false, Size.Small, "Small Candlehearth Coffee")]
+        [InlineData(false, Size.Medium, "Medium Candlehearth Coffee")]
+        [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
+        public void ShouldReturnCorrectNameBasedOnSize(bool decaf, Size size, string name)
+        {
+            CandlehearthCoffee cc = new CandlehearthCoffee();
+            cc.Size = size;
+            cc.Decaf = decaf;
+            Assert.Equal(name, cc.Name);
+        }
+
         [Fact]
         public void ChangingIceNotifiesIceProperty()
         {

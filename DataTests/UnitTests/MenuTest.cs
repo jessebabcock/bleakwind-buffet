@@ -11,6 +11,8 @@ using BleakwindBuffet.Data.Entree;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Side;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -166,6 +168,15 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Assert.Contains(Menu.FullMenu(), (item) => { return item.ToString().Equals("Smokehouse Skeleton"); });
             Assert.Contains(Menu.FullMenu(), (item) => { return item.ToString().Equals("Thalmor Triple"); });
             Assert.Contains(Menu.FullMenu(), (item) => { return item.ToString().Equals("Thugs T-Bone"); });
+        }
+
+        [Fact]
+        public void MenuShouldAssertEachItem()
+        {
+            foreach(IOrderItem item in Menu.FullMenu())
+            {
+                Assert.IsAssignableFrom<INotifyPropertyChanged>(item);
+            }
         }
     }
 }

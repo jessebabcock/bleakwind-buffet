@@ -10,7 +10,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.Drinks"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="SizeLoader">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -34,17 +34,20 @@
         <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" TextDecorations="Underline">Size</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" TextDecorations="Underline">Flavor</TextBlock>
         <TextBlock Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontWeight="Bold" TextDecorations="Underline">Special</TextBlock>
-        <CheckBox IsChecked="{Binding Path=Size}" Click="CheckSize" Name="smallBox"  Grid.Row="4" VerticalAlignment="Center">Small</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Size}" Click="CheckSize" Name="mediumBox" Grid.Row="5" VerticalAlignment="Center">Medium</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Size}" Click="CheckSize" Name="largeBox" Grid.Row="6" VerticalAlignment="Center">Large</CheckBox>
+        
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" VerticalAlignment="Center">
+        <RadioButton IsChecked="{Binding Path=Size}" Click="CheckSize" Name="smallBox" VerticalAlignment="Center" Height="30">Small</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Size}" Click="CheckSize" Name="mediumBox" VerticalAlignment="Center" Height="30">Medium</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Size}" Click="CheckSize" Name="largeBox" VerticalAlignment="Center">Large</RadioButton>
+        </StackPanel>
 
-        <CheckBox IsChecked="{Binding Path=Flavor}" Name="blackberry"  Click="CheckFlavor" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">Blackberry</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Flavor}" Name="cherry" Click="CheckFlavor" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">Cherry</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Flavor}" Name="grapefruit" Click="CheckFlavor" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">Grapefruit</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Flavor}" Name="lemon" Click="CheckFlavor" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center">Lemon</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Flavor}" Name="peach" Click="CheckFlavor" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">Peach</CheckBox>
-        <CheckBox IsChecked="{Binding Path=Flavor}" Name="watermelon" Click="CheckFlavor" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center">Watermelon</CheckBox>
-
+        <RadioButton IsChecked="{Binding Path=Flavor}" Name="blackberry"  Click="CheckFlavor" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center">Blackberry</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Flavor}" Name="cherry" Click="CheckFlavor" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center">Cherry</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Flavor}" Name="grapefruit" Click="CheckFlavor" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">Grapefruit</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Flavor}" Name="lemon" Click="CheckFlavor" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center">Lemon</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Flavor}" Name="peach" Click="CheckFlavor" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center">Peach</RadioButton>
+        <RadioButton IsChecked="{Binding Path=Flavor}" Name="watermelon" Click="CheckFlavor" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center">Watermelon</RadioButton>
+        
         <CheckBox IsChecked="{Binding Path=Ice}" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center">Ice</CheckBox>
         <Button Click="DoneClick" Grid.Row="9" Grid.Column="1" Margin="4" Width="100" Height="50" HorizontalAlignment="Right">Done</Button>
         <Button Click="CancelClick" Grid.Row="2" Grid.Column="0" Margin="4" Width="60"  HorizontalAlignment="Left">Cancel</Button>

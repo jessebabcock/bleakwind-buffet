@@ -1,4 +1,5 @@
-﻿using BleakwindBuffet.Data.Entree;
+﻿using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,16 +21,24 @@ namespace PointOfSale.Entree
     public partial class CustomizationThugsTBone : UserControl
     {
         private OrderComponent o;
+
+        ThugsTBone bone;
+
         public CustomizationThugsTBone(OrderComponent oc, ThugsTBone ttb)
         {
             InitializeComponent();
             orderItem.Text = "Customizing Thugs T-Bone";
             o = oc;
-            DataContext = ttb;
+            bone = ttb;
+            DataContext = bone;
         }
 
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(bone);
+            }
             MenuScreen();
         }
 
@@ -40,7 +49,7 @@ namespace PointOfSale.Entree
 
         void MenuScreen()
         {
-            o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
         }
     }
 }

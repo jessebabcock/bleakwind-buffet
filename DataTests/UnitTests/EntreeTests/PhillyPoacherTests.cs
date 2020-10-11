@@ -119,6 +119,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectName()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.Equal("Philly Poacher", pp.Name);
+        }
+
+        [Fact]
         public void ChangingSirloinNotifiesSirloinProperty()
         {
             var pp = new PhillyPoacher();

@@ -23,6 +23,11 @@ namespace BleakwindBuffet.Data.Entree
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Name
+        {
+            get => ToString();
+        }
+
         /// <summary>
         /// Private bools for the getter and setter defaulted true
         /// </summary>

@@ -86,6 +86,17 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             Assert.Equal(name, mog.ToString());
         }
 
+        [Theory]
+        [InlineData(Size.Small, "Small Mad Otar Grits")]
+        [InlineData(Size.Medium, "Medium Mad Otar Grits")]
+        [InlineData(Size.Large, "Large Mad Otar Grits")]
+        public void ShouldReturnCorrectNameBasedOnSize(Size size, string name)
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            mog.Size = size;
+            Assert.Equal(name, mog.Name);
+        }
+
         [Fact]
         public void ChangingSizeNotifiesSizeProperty()
         {

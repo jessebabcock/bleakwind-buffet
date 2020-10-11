@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomizationThalmor.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entree;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace PointOfSale.Entree
         /// </summary>
         private OrderComponent o;
 
+        ThalmorTriple trip;
+
         /// <summary>
         /// Initializes Thalmor Triple customization
         /// </summary>
@@ -36,7 +39,8 @@ namespace PointOfSale.Entree
             InitializeComponent();
             orderItem.Text = "Customizing Thalmor Triple";
             o = oc;
-            DataContext = tt;
+            trip = tt;
+            DataContext = o;
         }
 
         /// <summary>
@@ -46,6 +50,10 @@ namespace PointOfSale.Entree
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(trip);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,7 @@ namespace PointOfSale.Entree
         /// </summary>
         void MenuScreen()
         {
-            o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
         }
     }
 }

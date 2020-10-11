@@ -1,6 +1,7 @@
 ﻿///Author: Jesse Babcock
 ///File: CustomMarkarthMilk.cs
 ///Date: 9/27/2020
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace PointOfSale.Drinks
         /// </summary>
         private OrderComponent o;
 
+        MarkarthMilk milk;
+
         /// <summary>
         /// Initializes Markarth Milk customization
         /// </summary>
@@ -36,7 +39,8 @@ namespace PointOfSale.Drinks
             InitializeComponent();
             orderItem.Text = "Customizing Markarth Milk";
             o = oc;
-            DataContext = mm;
+            milk = mm;
+            DataContext = milk;
         }
 
         /// <summary>
@@ -46,6 +50,10 @@ namespace PointOfSale.Drinks
         /// <param name="e"></param>
         void DoneClick(object sender, RoutedEventArgs e)
         {
+            if (o.DataContext is Order order)
+            {
+                order.Add(milk);
+            }
             MenuScreen();
         }
 
@@ -64,7 +72,28 @@ namespace PointOfSale.Drinks
         /// </summary>
         void MenuScreen()
         {
-           o.pageDisplay.Child = o.Menu;
+            o.SwapToMenu();
+        }
+
+        /// <summary>
+        /// Loads the size into radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SizeLoader(object sender, RoutedEventArgs e)
+        {
+            if (milk.Size == BleakwindBuffet.Data.Enums.Size.Small)
+            {
+                smallBox.IsChecked = true;
+            }
+            else if (milk.Size == BleakwindBuffet.Data.Enums.Size.Medium)
+            {
+                mediumBox.IsChecked = true;
+            }
+            else
+            {
+                largeBox.IsChecked = true;
+            }
         }
 
         /// <summary>
@@ -76,24 +105,18 @@ namespace PointOfSale.Drinks
         {
             if (smallBox.IsChecked == true)
             {
-                mediumBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                milk.Size = BleakwindBuffet.Data.Enums.Size.Small;
+                smallBox.IsChecked = true;
             }
             else if (mediumBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                largeBox.IsEnabled = false;
+                milk.Size = BleakwindBuffet.Data.Enums.Size.Medium;
+                mediumBox.IsChecked = true;
             }
             else if (largeBox.IsChecked == true)
             {
-                smallBox.IsEnabled = false;
-                mediumBox.IsEnabled = false;
-            }
-            else
-            {
-                smallBox.IsEnabled = true;
-                mediumBox.IsEnabled = true;
-                largeBox.IsEnabled = true;
+                milk.Size = BleakwindBuffet.Data.Enums.Size.Large;
+                largeBox.IsChecked = true;
             }
         }
     }

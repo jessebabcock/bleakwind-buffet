@@ -21,6 +21,11 @@ namespace BleakwindBuffet.Data.Side
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public string Name
+        {
+            get => ToString();
+        }
+
         /// <summary>
         /// Double for price
         /// </summary>
@@ -67,6 +72,8 @@ namespace BleakwindBuffet.Data.Side
             {
                 size = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
         }
 

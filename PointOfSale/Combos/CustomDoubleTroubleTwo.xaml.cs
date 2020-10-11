@@ -31,7 +31,8 @@ namespace PointOfSale.Combos
         AretinoAppleJuice aaj;
         DragonbornWaffleFries dwf;
         Combo combo;
-        public CustomDoubleTroubleTwo(OrderComponent oc)
+        CustomCombo cust;
+        public CustomDoubleTroubleTwo(OrderComponent oc, CustomCombo cc)
         {
             InitializeComponent();
             o = oc;
@@ -39,12 +40,13 @@ namespace PointOfSale.Combos
             aaj = new AretinoAppleJuice();
             dwf = new DragonbornWaffleFries();
             combo = new Combo(dd, dwf, aaj);
+            cust = cc;
             DataContext = combo;
         }
 
         void CancelClick(object sender, RoutedEventArgs e)
         {
-            o.SwapToParent(this);
+            o.SwapToParent(cust);
         }
 
         void DoneClick(object sender, RoutedEventArgs e)

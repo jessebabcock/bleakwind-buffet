@@ -196,7 +196,8 @@ namespace BleakwindBuffet.DataTests.UnitTests
             {
                 order.Add(aaj);
                 order.Remove(aaj);
-            });*/
+            });
+            */
 
             Assert.PropertyChanged(order, "Total", () => {
                 order.Add(aaj);

@@ -31,7 +31,8 @@ namespace PointOfSale.Combos
         GardenOrcOmelette orc;
         VokunSalad sal;
         Combo combo;
-        public CustomOmeletteCombo(OrderComponent oc)
+        CustomCombo cust;
+        public CustomOmeletteCombo(OrderComponent oc, CustomCombo cc)
         {
             InitializeComponent();
             o = oc;
@@ -39,12 +40,13 @@ namespace PointOfSale.Combos
             orc = new GardenOrcOmelette();
             sal = new VokunSalad();
             combo = new Combo(orc, sal, mm);
+            cust = cc;
             DataContext = combo;
         }
 
         void CancelClick(object sender, RoutedEventArgs e)
         {
-            o.SwapToParent(this);
+            o.SwapToParent(cust);
         }
 
         void DoneClick(object sender, RoutedEventArgs e)

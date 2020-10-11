@@ -31,7 +31,8 @@ namespace PointOfSale.Combos
         CandlehearthCoffee can;
         PhillyPoacher phil;
         Combo combo;
-        public CustomMadPhillyGrits(OrderComponent oc)
+        CustomCombo cust;
+        public CustomMadPhillyGrits(OrderComponent oc, CustomCombo cc)
         {
             InitializeComponent();
             o = oc;
@@ -39,12 +40,13 @@ namespace PointOfSale.Combos
             can = new CandlehearthCoffee();
             phil = new PhillyPoacher();
             combo = new Combo(phil, mad, can);
+            cust = cc;
             DataContext = combo;
         }
 
         void CancelClick(object sender, RoutedEventArgs e)
         {
-            o.SwapToParent(this);
+            o.SwapToParent(cust);
         }
 
         void DoneClick(object sender, RoutedEventArgs e)

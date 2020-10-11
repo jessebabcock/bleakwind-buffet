@@ -31,7 +31,8 @@ namespace PointOfSale.Combos
         BriarheartBurger bb;
         DragonbornWaffleFries dwf;
         Combo combo;
-        public SailorSpecial(OrderComponent oc)
+        CustomCombo cust;
+        public SailorSpecial(OrderComponent oc, CustomCombo cc)
         {
             InitializeComponent();
             o = oc;
@@ -39,12 +40,13 @@ namespace PointOfSale.Combos
             bb = new BriarheartBurger();
             dwf = new DragonbornWaffleFries();
             combo = new Combo(bb, dwf, ss);
+            cust = cc;
             DataContext = combo;
         }
 
         void CancelClick(object sender, RoutedEventArgs e)
         {
-            o.SwapToParent(this);
+            o.SwapToParent(cust);
         }
 
         void DoneClick(object sender, RoutedEventArgs e)

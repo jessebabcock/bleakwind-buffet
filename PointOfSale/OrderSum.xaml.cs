@@ -126,19 +126,19 @@ namespace PointOfSale
                 {
                     if (combo.SpecialInstructions.Contains("Garden Orc Omelette"))
                     {
-                        oc.pageDisplay.Child = new CustomOmeletteCombo(oc);
+                        oc.pageDisplay.Child = new CustomOmeletteCombo(oc, new CustomCombo(oc));
                     }
                     else if (item.ToString().Contains("Philly Poacher"))
                     {
-                        oc.pageDisplay.Child = new CustomMadPhillyGrits(oc);
+                        oc.pageDisplay.Child = new CustomMadPhillyGrits(oc, new CustomCombo(oc));
                     }
                     else if (combo.SpecialInstructions.Contains("Double Draugr"))
                     {
-                        oc.pageDisplay.Child = new CustomDoubleTroubleTwo(oc);
+                        oc.pageDisplay.Child = new CustomDoubleTroubleTwo(oc, new CustomCombo(oc));
                     }
                     else if (combo.SpecialInstructions.Contains("Briarheart Burger"))
                     {
-                        oc.pageDisplay.Child = new SailorSpecial(oc);
+                        oc.pageDisplay.Child = new SailorSpecial(oc, new CustomCombo(oc));
                     }
                 }
                 else

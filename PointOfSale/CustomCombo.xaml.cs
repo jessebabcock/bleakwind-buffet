@@ -28,6 +28,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             o = oc;
+            DataContext = oc.DataContext;
         }
 
         void CancelClick(object sender, RoutedEventArgs e)
@@ -37,22 +38,22 @@ namespace PointOfSale
 
         void DoubleTroubleClick(object sender, RoutedEventArgs e)
         {
-            o.pageDisplay.Child = new CustomDoubleTroubleTwo(o);
+            o.pageDisplay.Child = new CustomDoubleTroubleTwo(o, this);
         }
 
         void MadPhillyClick(object sender, RoutedEventArgs e)
         {
-            o.pageDisplay.Child = new CustomMadPhillyGrits(o);
+            o.pageDisplay.Child = new CustomMadPhillyGrits(o, this);
         }
 
         void OmeletteClick(object sender, RoutedEventArgs e)
         {
-            o.pageDisplay.Child = new CustomOmeletteCombo(o);
+            o.pageDisplay.Child = new CustomOmeletteCombo(o, this);
         }
 
         void SailorSpecialClick(object sender, RoutedEventArgs e)
         {
-            o.pageDisplay.Child = new SailorSpecial(o);
+            o.pageDisplay.Child = new SailorSpecial(o, this);
         }
     }
 }

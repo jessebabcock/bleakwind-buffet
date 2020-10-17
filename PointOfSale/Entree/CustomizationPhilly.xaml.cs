@@ -40,7 +40,7 @@ namespace PointOfSale.Entree
             orderItem.Text = "Customizing Philly Poacher";
             o = oc;
             philly = poach;
-            DataContext = o;
+            DataContext = philly;
         }
 
         /// <summary>

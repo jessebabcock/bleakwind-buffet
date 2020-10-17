@@ -76,6 +76,27 @@ namespace PointOfSale.Sides
         }
 
         /// <summary>
+        /// Loads the size into radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SizeLoader(object sender, RoutedEventArgs e)
+        {
+            if (mad.Size == BleakwindBuffet.Data.Enums.Size.Small)
+            {
+                smallBox.IsChecked = true;
+            }
+            else if (mad.Size == BleakwindBuffet.Data.Enums.Size.Medium)
+            {
+                mediumBox.IsChecked = true;
+            }
+            else
+            {
+                largeBox.IsChecked = true;
+            }
+        }
+
+        /// <summary>
         /// Checks to make sure the user can only select one size
         /// </summary>
         /// <param name="sender"></param>

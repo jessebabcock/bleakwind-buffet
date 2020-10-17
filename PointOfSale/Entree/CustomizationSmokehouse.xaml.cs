@@ -40,7 +40,7 @@ namespace PointOfSale.Entree
             orderItem.Text = "Customizing Smokehouse Skeleton";
             o = oc;
             skel = ss;
-            DataContext = o;
+            DataContext = skel;
         }
 
         /// <summary>

@@ -16,9 +16,6 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="180"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.ColumnSpan="2" Padding="5" TextAlignment="Center" FontWeight="Bold" FontSize="20">
-            Bleakwind Buffet Menu
-        </TextBlock>
         <Border Name="pageDisplay" Grid.Column="0" Margin="0,15,0,0">
             
         </Border>

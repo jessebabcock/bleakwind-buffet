@@ -1,4 +1,7 @@
-﻿using BleakwindBuffet.Data;
+﻿///Author: Jesse Babcock
+///File: MainWindow.cs
+///Date: 9/27/20
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

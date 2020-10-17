@@ -1,4 +1,9 @@
-﻿<UserControl x:Class="PointOfSale.CustomCombo"
+﻿<!--
+    Author: Jesse Babcock
+    File: CustomCombo.xaml
+    Date: 9/27/20
+-->
+    <UserControl x:Class="PointOfSale.CustomCombo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

@@ -40,7 +40,7 @@ namespace PointOfSale.Entree
             orderItem.Text = "Customizing Thalmor Triple";
             o = oc;
             trip = tt;
-            DataContext = o;
+            DataContext = trip;
         }
 
         /// <summary>

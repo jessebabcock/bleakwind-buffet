@@ -45,7 +45,7 @@
                     Cancel Order
                 </Button>
                 <Button Click="CompleteOrderClick" DockPanel.Dock="Bottom" FontSize="13" Height="25">
-                    Complete Order
+                    Pay Order
                 </Button>
             </StackPanel>
         </DockPanel>

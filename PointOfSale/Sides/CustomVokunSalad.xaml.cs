@@ -31,7 +31,7 @@ namespace PointOfSale.Sides
         VokunSalad salad;
 
         /// <summary>
-        /// Initializes Vokun Salad customization
+        /// Initializes Vokun Salad customization.
         /// </summary>
         /// <param name="oc">Order control we are currently in</param>
         public CustomVokunSalad(OrderComponent oc, VokunSalad vs)
@@ -73,6 +73,27 @@ namespace PointOfSale.Sides
         void MenuScreen()
         {
             o.SwapToMenu();
+        }
+
+        /// <summary>
+        /// Loads the size into radio button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void SizeLoader(object sender, RoutedEventArgs e)
+        {
+            if (salad.Size == BleakwindBuffet.Data.Enums.Size.Small)
+            {
+                smallBox.IsChecked = true;
+            }
+            else if (salad.Size == BleakwindBuffet.Data.Enums.Size.Medium)
+            {
+                mediumBox.IsChecked = true;
+            }
+            else
+            {
+                largeBox.IsChecked = true;
+            }
         }
 
         /// <summary>

@@ -59,7 +59,8 @@ namespace PointOfSale
         public void SwapToMenu()
         {
             this.RemoveLogicalChild(this);
-            pageDisplay.Child = new MenuSelectionComponent(this);
+            pageDisplay.Child = Menu;
+            orderSummary.Child = reciept;
         }
 
         public void SwapToParent(DependencyObject target)

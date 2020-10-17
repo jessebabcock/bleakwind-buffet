@@ -187,18 +187,6 @@ namespace BleakwindBuffet.DataTests.UnitTests
             aaj.Size = size;
             Order order = new Order();
 
-
-            /*
-            Assert.Raises<NotifyCollectionChangedEventHandler>(
-            listener => order.CollectionChanged += listener, 
-            listener => order -= listener, // This action detatches the listener 
-            () =>
-            {
-                order.Add(aaj);
-                order.Remove(aaj);
-            });
-            */
-
             Assert.PropertyChanged(order, "Total", () => {
                 order.Add(aaj);
                 }

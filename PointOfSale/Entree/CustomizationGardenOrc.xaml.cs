@@ -40,7 +40,7 @@ namespace PointOfSale.Entree
             orderItem.Text = "Customizing Garden Orc Omelette";
             o = oc;
             orc = goo;
-            DataContext = o;
+            DataContext = orc;
         }
 
         /// <summary>

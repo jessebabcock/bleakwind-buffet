@@ -8,6 +8,7 @@ using BleakwindBuffet.Data.Side;
 using PointOfSale.Combos;
 using PointOfSale.Drinks;
 using PointOfSale.Entree;
+using PointOfSale.OrderFunction;
 using PointOfSale.Sides;
 using System;
 using System.Collections.Generic;
@@ -45,9 +46,8 @@ namespace PointOfSale
 
         void CompleteOrderClick(object sender, RoutedEventArgs e)
         {
-            order = new Order();
-            oc.DataContext = order;
-            oc.SwapToMenu();
+            oc.pageDisplay.Child = new OrderPayScreen(oc);
+            oc.orderSummary.Child = null;
         }
 
         void RemoveOrderClick(object sender, RoutedEventArgs e)

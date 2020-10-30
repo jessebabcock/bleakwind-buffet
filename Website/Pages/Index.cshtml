@@ -1,0 +1,176 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!--
+    Author: Jesse Babcock
+    File: Index.cshtml
+    Date: 10/30/20
+-->
+<div class="text-center">
+    <h1 class="welcome-title">Welcome to Bleackwind Buffet!</h1>
+    <p class="welcome-message">
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas.
+        Hack into a Smokehouse Skeleton with your dagger.
+        Or vanquish the the mighty Thalmor Triple Burger! You’ve had a hard adventure and earned your loot, so spend it with us!.
+    </p>
+</div>
+<hr />
+
+<div class="entree-categories">
+    <h2>Entrees</h2>
+    <ul class="noncombo-list">
+        @foreach (BleakwindBuffet.Data.Entree.Entree entree in BleakwindBuffet.Data.Menu.Entrees())
+        {
+            <li>
+                <div class="entree-name">
+                    @entree.ToString()
+                </div>
+                <div class="entree-price">
+                    Price: @entree.Price
+                </div>
+                <div class="entree-calories">
+                    Calories: @entree.Calories
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="drink-categories">
+    <h2>Drinks</h2>
+    <ul class="noncombo-list">
+        @foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Drinks())
+        {
+            <li>
+                <div class="side-name">
+                    @drink.ToString()
+                </div>
+                <div class="side-price">
+                    Price: @drink.Price
+                </div>
+                <div class="side-calories">
+                    Calories: @drink.Calories
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="soda-flavors">
+    <h2>Soda Flavors</h2>
+    <ul class="flavor-list">
+        @foreach (BleakwindBuffet.Data.Enums.SodaFlavor flavor in Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
+        {
+            <li>
+                <div class="side-name">
+                    @flavor.ToString()
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="side-categories">
+    <h2>Sides</h2>
+    <ul class="noncombo-list">
+        @foreach (BleakwindBuffet.Data.Side.Side side in BleakwindBuffet.Data.Menu.Sides())
+        {
+            <li>
+                <div class="side-name">
+                    @side.ToString()
+                </div>
+                <div class="side-price">
+                    Price: @side.Price
+                </div>
+                <div class="side-calories">
+                    Calories: @side.Calories
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="combo-catergory">
+    <h2>Combos: Get $1 off with these meals!</h2>
+    <ul class="combo-list">
+        <li>
+            <div class="double-combo">
+                <h3>
+                    Double Trouble
+                </h3>
+                <ul class="combo-items">
+                    <li>
+                        Double Drauger
+                    </li>
+                    <li>
+                        Aretino Apple Juice
+                    </li>
+                    <li>
+                        Dragonborn Waffle Fries
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="omelette-combo">
+                <h3>
+                    Omelette it slide
+                </h3>
+                <ul class="combo-items">
+                    <li>
+                        Garden Orc Omelette
+                    </li>
+                    <li>
+                        Markarth Milk
+                    </li>
+                    <li>
+                        Vokun Salad
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="sailor-combo">
+                <h3>
+                    Sailor Special
+                </h3>
+                <ul class="combo-items">
+                    <li>
+                        Briarhearth Burger
+                    </li>
+                    <li>
+                        Sailor Soda
+                    </li>
+                    <li>
+                        Dragonborn Waffle Fries
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <div class="philly-combo">
+                <h3>
+                    Mad Philly Coffee
+                </h3>
+                <ul class="combo-items">
+                    <li>
+                        Philly Poacher
+                    </li>
+                    <li>
+                        Candlehearth Coffee
+                    </li>
+                    <li>
+                        Mad Otar Grits
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+

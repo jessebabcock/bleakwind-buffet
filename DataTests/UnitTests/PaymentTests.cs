@@ -281,5 +281,27 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Assert.Equal(.69, register.Total);
             CashDrawer.ResetDrawer();
         }
+
+        [Fact]
+        public void AmountDueIsCorrect()
+        {
+            CashDrawer.OpenDrawer();
+            Order order = new Order();
+            order.Add(new AretinoAppleJuice());
+            RegisterFunction register = new RegisterFunction(order);
+            Assert.Equal(register.AmountDue, register.Total);
+            CashDrawer.ResetDrawer();
+        }
+
+        [Fact]
+        public void ChangeOwedIsCorrect()
+        {
+            CashDrawer.OpenDrawer();
+            Order order = new Order();
+            order.Add(new AretinoAppleJuice());
+            RegisterFunction register = new RegisterFunction(order);
+            Assert.Equal(0, register.AmountOwe);
+            CashDrawer.ResetDrawer();
+        }
     }
 }

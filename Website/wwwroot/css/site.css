@@ -4,12 +4,6 @@
  * Purpose: Layout of the site
  */
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -86,8 +80,6 @@ ul.noncombo-list > li {
     margin: 10px;
     font-size: 13px;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 ul.combo-list > li {
@@ -95,16 +87,12 @@ ul.combo-list > li {
     margin: 10px;
     font-size: 13px;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 ul.flavor-list > li {
     list-style-type: none;
     font-size: 13px;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 ul.combo-items > li {
@@ -114,4 +102,28 @@ ul.combo-items > li {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+#filters input[type=number] {
+    width: 5rem;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+}
+
+#search {
+    margin-top: 20px;
+}
+
+#range-check{
+    margin: 15px;
+}
+
+form#item-database {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr;
+    grid-template-rows: auto auto;
 }

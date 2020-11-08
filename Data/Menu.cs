@@ -10,7 +10,10 @@ using BleakwindBuffet.Data.Side;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Text;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace BleakwindBuffet.Data
 {
@@ -427,6 +430,174 @@ namespace BleakwindBuffet.Data
             Items.Add(ttb);
 
             return Items;
+        }
+
+
+        /// <summary>
+        /// Gets all the movies in the database
+        /// </summary>
+        public static IEnumerable<IOrderItem> All { get { return FullMenu(); } }
+
+        /// <summary>
+        /// Searches the movies i nthe database for matches
+        /// </summary>
+        /// <param name="terms"></param>
+        /// <returns> The results of the search</returns>
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            //null check
+            if (terms == null) return All;
+
+            foreach (IOrderItem item in All)
+            {
+                //adding the movie to the list if it matches
+                if (item.ToString().ToLower().Contains(terms.ToLower()))
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// </summary>
+        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="ratings">The ratings to include</param>
+        /// <returns>A collection containing only movies that match the filter</returns>
+        public static IEnumerable<IOrderItem> FilterBySelection(IEnumerable<IOrderItem> items, IEnumerable<string> selection)
+        {
+            // If no filter is specified, just return the provided collection
+            if (selection == null || selection.Count() == 0) return items;
+
+            // Filter the supplied collection of movies
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (selection.Contains("Entrees"))
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item is Entree.Entree)
+                    {
+                        results.Add(item);
+                    }
+                }
+            }
+            if (selection.Contains("Sides"))
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item is Side.Side)
+                    {
+                        results.Add(item);
+                    }
+                }
+            }
+            if (selection.Contains("Drinks"))
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item is Drink)
+                    {
+                        results.Add(item);
+                    }
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// to those with IMDB ratings falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered IOrderItem collection</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> itemlist, double? min, double? max)
+        {
+            if (min == 0 && max == 0) return itemlist;
+
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == 0)
+            {
+                foreach (IOrderItem item in itemlist)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            // only a minimum specified
+            if (max == 0)
+            {
+                foreach (IOrderItem item in itemlist)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in itemlist)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// to those with IMDB ratings falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered IOrderItem collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> itemlist, double? min, double? max)
+        {
+            if (min == 0 && max == 0) return itemlist;
+
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == 0)
+            {
+                foreach (IOrderItem item in itemlist)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+
+            // only a minimum specified
+            if (max == 0)
+            {
+                foreach (IOrderItem item in itemlist)
+                {
+                    if (item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in itemlist)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
         }
     }
 }

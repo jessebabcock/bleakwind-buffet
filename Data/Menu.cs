@@ -448,7 +448,7 @@ namespace BleakwindBuffet.Data
             List<IOrderItem> results = new List<IOrderItem>();
 
             //null check
-            if (terms == null) return All;
+            if (terms == null || terms == "") return All;
 
             foreach (IOrderItem item in All)
             {
@@ -519,12 +519,12 @@ namespace BleakwindBuffet.Data
         /// <returns>The filtered IOrderItem collection</returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> itemlist, double? min, double? max)
         {
-            if (min == 0 && max == 0) return itemlist;
+            if (min == null && max == null) return itemlist;
 
             var results = new List<IOrderItem>();
 
             // only a maximum specified
-            if (min == 0)
+            if (min == null)
             {
                 foreach (IOrderItem item in itemlist)
                 {
@@ -534,7 +534,7 @@ namespace BleakwindBuffet.Data
             }
 
             // only a minimum specified
-            if (max == 0)
+            if (max == null)
             {
                 foreach (IOrderItem item in itemlist)
                 {
@@ -565,12 +565,12 @@ namespace BleakwindBuffet.Data
         /// <returns>The filtered IOrderItem collection</returns>
         public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> itemlist, double? min, double? max)
         {
-            if (min == 0 && max == 0) return itemlist;
+            if (min == null && max == null) return itemlist;
 
             var results = new List<IOrderItem>();
 
             // only a maximum specified
-            if (min == 0)
+            if (min == null)
             {
                 foreach (IOrderItem item in itemlist)
                 {
@@ -580,7 +580,7 @@ namespace BleakwindBuffet.Data
             }
 
             // only a minimum specified
-            if (max == 0)
+            if (max == null)
             {
                 foreach (IOrderItem item in itemlist)
                 {

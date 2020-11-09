@@ -13,6 +13,7 @@ using BleakwindBuffet.Data.Side;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -177,6 +178,147 @@ namespace BleakwindBuffet.DataTests.UnitTests
             {
                 Assert.IsAssignableFrom<INotifyPropertyChanged>(item);
             }
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData("burger")]
+        [InlineData(null)]
+        public void WebsiteShouldReturnSearch(string searchterm)
+        {
+            IEnumerable<IOrderItem> items = Menu.Search(searchterm);
+            Assert.Contains(items, (item) => { return item is BriarheartBurger; });
+        }
+
+        [Fact]
+        public void WebsiteShouldFilterNothingNullCheck()
+        {
+            string[] filter = null;
+            IEnumerable<IOrderItem> items = Menu.FilterBySelection(Menu.FullMenu(), filter);
+            foreach (IOrderItem item in items)
+            {
+                Assert.IsAssignableFrom<IOrderItem>(item);
+            }
+        }
+
+        [Fact]
+        public void WebsiteShouldFilterNothingEmptyCheck()
+        {
+            string[] filter = new string[3];
+            IEnumerable<IOrderItem> items = Menu.FilterBySelection(Menu.FullMenu(), filter);
+            foreach (IOrderItem item in items)
+            {
+                Assert.IsAssignableFrom<IOrderItem>(item);
+            }
+        }
+
+        [Fact]
+        public void WebsiteShouldFilterDrinks()
+        {
+            string[] filter = new string[3];
+            filter[0] = "Drinks";
+            IEnumerable<IOrderItem> items = Menu.FilterBySelection(Menu.FullMenu(), filter);
+            foreach(IOrderItem item in items)
+            {
+                Assert.IsAssignableFrom<Drink>(item);
+            }
+            
+        }
+
+        [Fact]
+        public void WebsiteShouldFilterEntrees()
+        {
+            string[] filter = new string[3];
+            filter[0] = "Entrees";
+            IEnumerable<IOrderItem> items = Menu.FilterBySelection(Menu.FullMenu(), filter);
+            foreach (IOrderItem item in items)
+            {
+                Assert.IsAssignableFrom<Entree>(item);
+            }
+
+        }
+
+        [Fact]
+        public void WebsiteShouldFilterSides()
+        {
+            string[] filter = new string[3];
+            filter[0] = "Sides";
+            IEnumerable<IOrderItem> items = Menu.FilterBySelection(Menu.FullMenu(), filter);
+            foreach (IOrderItem item in items)
+            {
+                Assert.IsAssignableFrom<Side>(item);
+            }
+        }
+
+        [Fact]
+        public void ShouldCheckMinAndMaxFilterPriceNullCheck()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByPrice(Menu.FullMenu(), null, null);
+            Assert.Contains(items, (item) => { return item is BriarheartBurger; });
+        }
+
+        [Fact]
+        public void ShouldCheckMinPriceNullFilter()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByPrice(Menu.FullMenu(), null, 1);
+            foreach (IOrderItem item in items)
+            {
+                Assert.True(item.Price <= 1 && item.Price >= 0);
+            }
+        }
+
+        [Fact]
+        public void ShouldCheckMaxPriceNullFilter()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByPrice(Menu.FullMenu(), 4, null);
+            Assert.Contains(items, (item) => { return item is BriarheartBurger; });
+            Assert.Contains(items, (item) => { return item is DoubleDraugr; });
+            Assert.Contains(items, (item) => { return item is SmokehouseSkeleton; });
+            Assert.Contains(items, (item) => { return item is PhillyPoacher; });
+            Assert.Contains(items, (item) => { return item is ThalmorTriple; });
+        }
+
+        [Fact]
+        public void ShouldCheckMinAndMaxPriceNullFilter()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByPrice(Menu.FullMenu(), 4, 6);
+            Assert.Contains(items, (item) => { return item is GardenOrcOmelette; });
+            Assert.Contains(items, (item) => { return item is SmokehouseSkeleton; });
+        }
+
+        [Fact]
+        public void ShouldCheckMinCaloriesNullFilter()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByCalories(Menu.FullMenu(), null, 400);
+            foreach(IOrderItem item in items)
+            {
+                Assert.True(item.Calories <= 400 && item.Calories >= 0);
+            }
+        }
+
+        [Fact]
+        public void ShouldCheckMaxCaloriesNullFilter()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByCalories(Menu.FullMenu(), 400, null);
+            Assert.Contains(items, (item) => { return item is BriarheartBurger; });
+            Assert.Contains(items, (item) => { return item is DoubleDraugr; });
+            Assert.Contains(items, (item) => { return item is SmokehouseSkeleton; });
+            Assert.Contains(items, (item) => { return item is PhillyPoacher; });
+            Assert.Contains(items, (item) => { return item is ThalmorTriple; });
+        }
+
+        [Fact]
+        public void ShouldCheckMinAndMaxCaloriesNullFilter()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByCalories(Menu.FullMenu(), 300, 400);
+            Assert.Contains(items, (item) => { return item is FriedMiraak; });
+        }
+
+        [Fact]
+        public void ShouldCheckMinAndMaxFilterCaloriesNullCheck()
+        {
+            IEnumerable<IOrderItem> items = Menu.FilterByCalories(Menu.FullMenu(), null, null);
+            Assert.Contains(items, (item) => { return item is BriarheartBurger; });
         }
     }
 }

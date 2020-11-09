@@ -16,7 +16,7 @@ namespace Website.Pages
 
         public bool Sidecheck, Entreecheck, Drinkcheck;
 
-        public double Pmin, Pmax, Cmin, Cmax;
+        public double? Pmin, Pmax, Cmin, Cmax;
 
         public IEnumerable<IOrderItem> Items { get; set; }
 
@@ -28,7 +28,7 @@ namespace Website.Pages
         /// <summary>
         /// Gets the search results for display on the page
         /// </summary>
-        public void OnGet(string SearchTerms, string[] Selection, double PriceMax, double PriceMin, double CaloriesMin, double CaloriesMax)
+        public void OnGet(string SearchTerms, string[] Selection, double? PriceMax, double? PriceMin, double? CaloriesMin, double? CaloriesMax)
         {
             Items = Menu.Search(SearchTerms);
             Items = Menu.FilterBySelection(Items, Selection);

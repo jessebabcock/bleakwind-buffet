@@ -20,6 +20,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            ThugsTBone ttb = new ThugsTBone();
+            Assert.Equal("Juicy T-Bone, not much else to say.", ttb.Description);
+        }
+
+        [Fact]
         public void ShouldBeAnItem()
         {
             ThugsTBone ttb = new ThugsTBone();

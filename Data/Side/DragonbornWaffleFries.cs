@@ -21,6 +21,20 @@ namespace BleakwindBuffet.Data.Side
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Crispy fried potato waffle fries.";
+            }
+        }
+
+        /// <summary>
+        /// Name of the item
+        /// </summary>
         public string Name
         {
             get => ToString();

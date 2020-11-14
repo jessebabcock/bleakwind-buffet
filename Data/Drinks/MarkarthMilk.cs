@@ -20,6 +20,20 @@ namespace BleakwindBuffet.Data.Drinks
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Hormone-free organic 2% milk.";
+            }
+        }
+
+        /// <summary>
+        /// Name of the item
+        /// </summary>
         public string Name
         {
             get => ToString();

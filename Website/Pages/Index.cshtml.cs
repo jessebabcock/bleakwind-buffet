@@ -1,9 +1,17 @@
-﻿using System;
+﻿/*
+* Author: Jesse Babcock
+* Class name: Index.cshtml.cs
+* Purpose: Backend of the index page to the website
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entree;
+using BleakwindBuffet.Data.Side;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
@@ -30,11 +38,36 @@ namespace Website.Pages
         /// </summary>
         public void OnGet(string SearchTerms, string[] Selection, double? PriceMax, double? PriceMin, double? CaloriesMin, double? CaloriesMax)
         {
-            Items = Menu.Search(SearchTerms);
-            Items = Menu.FilterBySelection(Items, Selection);
-            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
-            Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
-            foreach(string thing in Selection)
+            Items = Menu.FullMenu();
+            // Filter by Search
+            if (SearchTerms != null)
+            {
+                Items = from item in Items
+                        where item.Name != null && item.Name.Contains(SearchTerms, StringComparison.InvariantCultureIgnoreCase)
+                         select item;
+            }
+            // Filter by Selection of type
+            if (Selection != null && Selection.Length != 0)
+            {
+                Items = Items.Where(item =>
+                    item is Drink && Selection.Contains("Drinks") || item is Entree && Selection.Contains("Entree") || item is Side && Selection.Contains("Sides")
+                    );
+            }
+            // Filter by Price
+            if (PriceMin != null && PriceMax != null)
+            {
+                Items = Items.Where(item =>
+                    item.Price <= PriceMax && item.Price >= PriceMin
+                    );
+            }
+            // Filter by Selection of type
+            if (CaloriesMin != null && CaloriesMax != null)
+            {
+                Items = Items.Where(item =>
+                    item.Calories <= CaloriesMax && item.Calories >= CaloriesMin
+                    );
+            }
+            foreach (string thing in Selection)
             {
                 switch (thing)
                 {

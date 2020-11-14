@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Jesse Babcock
+* Class name: Combo.cs
+* Purpose: Class for combos
+*/
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -21,6 +26,7 @@ namespace BleakwindBuffet.Data
         private BleakwindBuffet.Data.Entree.Entree entree;
         private BleakwindBuffet.Data.Side.Side side;
         private Drink drink;
+        private List<IOrderItem> items = new List<IOrderItem>();
         /// <summary>
         /// Gets the list of items for the combo's price, calories, and instructions
         /// </summary>
@@ -34,9 +40,21 @@ namespace BleakwindBuffet.Data
             drink = d;
             CollectionChanged += CollectionChangedListener;
             Order comboOrder = new Order();
-            if (e is IOrderItem eitem) comboOrder.Add(eitem);
-            if (s is IOrderItem sitem) comboOrder.Add(sitem);
-            if (e is IOrderItem ditem) comboOrder.Add(ditem);
+            if (e is IOrderItem eitem)
+            {
+                comboOrder.Add(eitem);
+                items.Add(eitem);
+            }
+            if (s is IOrderItem sitem)
+            {
+                comboOrder.Add(sitem);
+                items.Add(sitem);
+            }
+            if (e is IOrderItem ditem)
+            {
+                comboOrder.Add(ditem);
+                items.Add(ditem);
+            }
         }
 
         /// <summary>
@@ -136,6 +154,41 @@ namespace BleakwindBuffet.Data
             else if (e.PropertyName == "SpecialInstructions")
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return $"{items[0].Description}, {items[1].Description}, {items[2].Description}";
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                foreach(IOrderItem item in items)
+                {
+                    if (item is BriarheartBurger)
+                    {
+                        return "Sailor Special";
+                    }
+                    if(item is PhillyPoacher)
+                    {
+                        return "Mad Philly Coffee";
+                    }
+                    if (item is GardenOrcOmelette)
+                    {
+                        return "Omelette it slide";
+                    }
+                    if (item is DoubleDraugr)
+                    {
+                        return "Double Trouble";
+                    }
+                }
+                throw new ArgumentException("Should never reach");
             }
         }
     }

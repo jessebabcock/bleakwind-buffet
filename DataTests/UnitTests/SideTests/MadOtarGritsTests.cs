@@ -21,6 +21,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         }
 
         [Fact]
+        public void ShouldReturnCorrectDescription()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.Equal("Cheesey Grits.", mog.Description);
+        }
+
+        [Fact]
         public void ShouldBeAnItem()
         {
             MadOtarGrits mog = new MadOtarGrits();

@@ -102,6 +102,17 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
+        /// <summary>
+        /// Description of the item
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return "Fresh squeezed apple juice.";
+            }
+        }
+
         public string Name
         {
             get => ToString();
